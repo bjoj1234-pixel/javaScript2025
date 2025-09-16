@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js연산 연습</title>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="첫번째 숫자">
+    <input type="number" id="num2" placeholder="두번째 숫자">
+    <button onclick="calc()">계산</button>
+    <p id="output3"></p>
+
+    <script>
+        function calc(){
+            let val1 = document.getElementById('num1').value;
+            let num1 = Number(val1);
+
+            let val2 = document.getElementById('num2').value;
+            let num2 = Number(val2);
+
+            let result = document.getElementById('output3');
+
+            //코드의 구조화 => 코드의 간략화
+            let add = num1 + num2;
+            let diff = num1 - num2;
+            let mul = num1 * num2;
+            let div = num1 / num2;
+
+            console.log(`합: ${add}, 차: ${diff}, 곱: ${mul}, 나누기: ${div}`);
+            result.innerHTML = `합: ${add}, 차: ${diff}, 곱: ${mul}, 나누기: ${div}`;
+        }
+
+        // && : and(그리고~) 조건을 모두 만족할 때 true, false
+        // || : or(또는, ~이거나) 조건중 하나라도 만족할 때 true, false
+        // ! : not(true) => 조건의 부정이므로 false가 출력됨
+        // 엑셀이 40점 이상이면서 액세스 40점 이상이면서 평균이 60점 이상이면
+        // 컴활 '합격', 아니면 '불합격'이다.
+
+        let aaa = 0;
+        let bbb = 60;
+        let avg = (aaa + bbb)/2;
+
+        aaa >= 40 && bbb >= 40 && avg >=60 ? '합격' : '불합격';
+
+        console.log(`avg:${avg},${aaa >= 40 && bbb >= 40 && avg >=60}`);
+    </script>
+</body>
+</html>

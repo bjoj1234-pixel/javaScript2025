@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <input type="text" id="val">
+    <button onclick="y_check()">확인</button>
+    <p id="p1"></p>
+    
+    <script>
+        function y_check(){
+            let val = document.getElementById('val').value;
+            let p1 = document.getElementById('p1');
+
+            if(val == 'y' || val == 'Y'){
+                p1.innerHTML = '예';
+            }else{
+                p1.innerHTML = '아니오';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문</title>
+</head>
+<body>
+    <button onclick="weather()" >계절 출력</button>
+    <input type="text" id="val">
+    <p id="output"></p>
+
+    <script>
+        function weather(){
+            let val = Number(document.getElementById('val').value);
+            let output = document.getElementById('output');
+
+            // switch(true){
+            //     case val>=3 && val<=5:
+            //         output.innerHTML = "봄";
+            //         break;
+            //     case val>=6 && val<=8:
+            //         output.innerHTML = "여름";
+            //         break;
+            //     case val>=9 && val<=11:
+            //         output.innerHTML = "가을";
+            //         break;
+            //     case val==12 || (val<=2 && val>0):
+            //         output.innerHTML = "겨울";
+            //         break;
+            // }
+            
+            switch(val){
+                //케이스가 여러개일 경우 아래와 같이 작성가능
+                case 3:
+                case 4:
+                case 5:
+                    output.innerHTML = "봄";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    output.innerHTML = "여름";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    output.innerHTML = "가을";
+                    break;
+                case 12:
+                case 1:
+                case 2:
+                    output.innerHTML = "겨울";
+                    break;
+                default:
+                    output.innerHTML = "숫자를 잘 못 입력하였습니다.";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문</title>
+</head>
+<body>
+    <h2>직원 근무시간 급여 계산</h2>
+    <p>
+        근무시간 입력:
+        <!-- 근무시간 input태그 -->
+        <input type="number" id="inputValue">
+        <!-- 급여계산 버튼 -->
+        <button onclick="calcSel()">급여 계산</button>
+    </p>
+    <p>
+        급여: 
+        <!-- 급여 출력태그 -->
+        <span id="money"></span>원
+    </p>
+    <p>
+        근무 메시지: 
+        <!-- 근무 메시지 출력태그 -->
+        <span id="message"></span>
+    </p>
+    <p>
+        급여 상태: 
+        <!-- 급여 상태 출력태그 -->
+        <span id="status"></span>
+    </p>
+    
+    <!-- <script>
+        function calcSel(){
+            //근무시간 입력값 저장
+            let inputValue = Number(document.getElementById('inputValue').value);
+            //급여 출력태그 아이디값 저장
+            let money = document.getElementById("money");
+            //근무 메시지 출력태그 아이디값 저장
+            let message = document.getElementById("message");
+            //급여 상태 출력태그 아이디값 저장
+            let status = document.getElementById("status");
+
+            switch(true){
+                //근무시간이 0시간 일때 조건
+                case inputValue==0:
+                    money.innerHTML = '0';
+                    message.innerHTML = '출근하지 않았습니다.';
+                    status.innerHTML = '무급';
+                    break;
+                //근무시간이 1~8시간 일때 조건
+                case inputValue >= 1 && inputValue <= 8:
+                    //근무시간에 기본시급 10000원을 곱함
+                    money.innerHTML = inputValue * 10000;
+                    message.innerHTML = '정상 근무';
+                    status.innerHTML = '급여 있음';
+                    break;
+                //근무시간이 8시간 초과일 때 조건
+                case inputValue > 8:
+                    // (총 근무시간 - 8시간(기본 근무시간)) = 초과시간 X 15000원(1.5배 시급)
+                    // 8시간(기본 근무시간) X 10000원(기본 시급) => 80000원
+                    money.innerHTML = (inputValue - 8)*15000 + 80000;
+                    message.innerHTML = '초과 근무';
+                    status.innerHTML = '급여 있음';
+                    break;
+                default:
+                    // 0 이하 숫자를 입력했을때 출력
+                    money.innerHTML = '0이상의 숫자를 입력하세요';
+                    message.innerHTML = '0이상의 숫자를 입력하세요';
+                    status.innerHTML = '0이상의 숫자를 입력하세요';
+                    break;
+            }
+        }
+    </script> -->
+
+    <script>
+        function calcSel(){
+            //근무시간 입력값 저장
+            let inputValue = Number(document.getElementById('inputValue').value);
+            //급여 출력태그 아이디값 저장
+            let money = document.getElementById("money");
+            //근무 메시지 출력태그 아이디값 저장
+            let message = document.getElementById("message");
+            //급여 상태 출력태그 아이디값 저장
+            let status = document.getElementById("status");
+
+
+            
+            //전역변수 : 전 지역에서 사용하는 변수(function 밖에서 선언하는 변수)
+            //지역변수 : 지금 현재 function안에서만 사용가능 (자바스크립트는 전역변수를 잘 읽지못하는 관계로 지역변수로 진행.java는 전역변수로 진행)
+           
+            //기본시급(10000원 고정)
+            const basePay = 10000;
+            //기본급여
+            let realPay = 0;
+            //초과시간
+            let overTime = 0;
+            //초과시간에 해당되는 급여
+            let overPay = 0;
+            //총 급여
+            let PayTotal = 0; //초기화 (값을 미리 넣어두지 않으면, stack에 저장되지 않는다. 그래서 일단 값을 넣어줌. 문자는 ""를 넣어서 초기화)
+
+            //급여
+            if(inputValue > 8){
+                //기본급여
+                realPay = 8 * basePay;
+                //초과시간
+                overTime = inputValue - 8;
+                //초과시간에 해당되는 급여
+                overPay = overTime * basePay * 1.5;
+                //총 급여계산
+                PayTotal = realPay + overPay;
+                money.innerHTML = PayTotal;
+            }else{
+                realPay = inputValue * basePay;
+                money.innerHTML = realPay;
+            }
+
+            //근무메시지
+            //switch(true)
+            let mssg = "";//초기화 (문자형태 변수선언시)
+
+            switch(true){
+                case (inputValue == 0):
+                    mssg="출근하지 않았습니다.";
+                    message.innerHTML = mssg;
+                    break;
+                case (inputValue >=1 && inputValue <=8):
+                    mssg="정상근무";
+                    message.innerHTML = mssg;
+                    break;
+                case (inputValue > 8):
+                    mssg="초과근무";
+                    message.innerHTML = mssg;
+                    break;
+            }
+            
+            //근무상태
+            //3항 연산자 이용
+            status.innerHTML = inputValue == 0 ? '무급':'급여 있음';
+        }
+    </script>
+</body>
+</html>

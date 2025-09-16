@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js연산 연습</title>
+</head>
+<body>
+    <button onclick="problem3()">
+        문제 3: 문자열 연결
+    </button>
+    <p id="p3"></p>
+    
+    <script>
+        let str1 = "Hello";
+        let str2 = "World";
+
+        function problem3(){
+            console.log(`${str1} ${str2}`);
+            p3.innerHTML = `${str1} ${str2}`;
+        }
+
+        let a=25;
+        let b=2;
+        console.log(`a를 b로 나눈 나머지: ${a % b}`);
+        console.log(`a를 b로 나눈 몫: ${a / b}`);
+
+
+        //삼항연산자
+        //조건 ? true 일 때 값 : false일 때 값
+        //조건 => 비교대상 비교연산자 비교값
+        //국어가 90이상이면 '수', 아니면 '재수강'
+        //조건 : 국어 > =90
+        //국어 >= 90 ? '수' : '재수강' 
+        //결과값 true =1, false= 0
+        let eng = 90;
+        eng >= 90 ? '수' : '재수강'
+        console.log(`${eng>=90 ? '수' : '재수강'}`);
+
+        //다중 3항 연산자
+        //3항 연산자 사용이유 => if 대용, 식이 간편
+        //eng가 90이상 이면 수, 80이상이면 '우', 그외에는 '재수강'
+        eng = 75;
+        let result = eng >= 90 ? '수' : eng >= 80 ? '우' : '재수강';
+        console.log(result);
+
+    </script>
+</body>
+</html>

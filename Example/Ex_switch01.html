@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문</title>
+</head>
+<body>
+    <button onclick="dayCheck()" >요일 출력</button>
+    <input type="number" id="val">
+    <p id="output"></p>
+
+    <script>
+        function dayCheck(){
+            let val = Number(document.getElementById('val').value);
+            let output = document.getElementById('output');
+
+            //switch에서 true사용시 반드시
+            //case 조건식 입력이 원칙
+            switch(true){
+                case val==1:
+                    output.innerHTML = "일요일";
+                    break;
+                case val==2:
+                    output.innerHTML = "화요일";
+                    break;
+                case val==3:
+                    output.innerHTML = "수요일";
+                    break;
+                case val==4:
+                    output.innerHTML = "목요일";
+                    break;
+                case val==5:
+                    output.innerHTML = "금요일";
+                    break;
+                case val==6:
+                    output.innerHTML = "토요일";
+                    break;
+                //default는 필요없는 경우 생략가능
+            }
+        }
+    </script>
+</body>
+</html>

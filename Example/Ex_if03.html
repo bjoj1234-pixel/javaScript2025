@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <h4>온도가 0도 이하면 "영하", 0~30도는 "보통", 30도 이상은 "더움"</h4>
+    <input type="number" id="val">
+    <button onclick="ondoCheck()">확인</button>
+    <p id="output"></p>
+    
+    <script>
+        function ondoCheck(){
+            let val = Number(document.getElementById('val').value);
+            let output = document.getElementById('output');
+
+            if(val < 0) output.innerHTML = "영하";
+            if(val >= 0 && val <= 30) output.innerHTML = "보통";
+            if(val > 30) output.innerHTML = "더움";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js연산 연습</title>
+</head>
+<body>
+    <button onclick="problem4()">
+        문제 4: 조건문
+    </button>
+    <p id="p4"></p>
+
+
+    <input type="number" id="inputtext">
+    <button onclick="inputpro()">인풋값계산</button>
+    <p id="input4"></p>
+    
+    <script>       
+
+        function problem4(){
+
+            let a = 7;
+
+            let result = (a % 2 == 1) ? '홀수입니다.' : '짝수입니다.';
+
+            console.log(result);
+
+            p4.innerHTML = result;
+
+        }
+
+        //<input>태그에 입력된 모든 값은 문자 데이터 형식이며,
+        //<input>태그에 입력된 모든 값을 읽어오려면 반드시 .value 메서드를 사용해야한다.
+        function inputpro(){
+            let input4 = document.getElementById('input4');
+            // Number() => 괄호안의 인수를 숫자로 변경하는 함수. 처음 N은 반드시 대문자로 작성
+            let inputvalue = Number(document.getElementById('inputtext').value);
+            console.log(`input의 입력 값 ${inputvalue}`);
+            
+            input4.innerHTML = inputvalue + 5;
+            console.log(`input의 값 더 하기 5 :  ${input4.innerHTML}`);
+
+        }
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <h4>국어,영어,수학 평균이 70이상이면 "합격", 아니면 "불합격"</h4>
+    <input type="number" id="kor" placeholder="국어">
+    <input type="number" id="eng" placeholder="영어">
+    <input type="number" id="math" placeholder="수학">
+    <button onclick="scoreCheck()">확인</button>
+    <p id="output"></p>
+    
+    <script>
+        function scoreCheck(){
+            let kor = Number(document.getElementById('kor').value);
+            let eng = Number(document.getElementById('eng').value);
+            let math = Number(document.getElementById('math').value);
+            let avg = (kor + eng + math) / 3;
+            console.log(avg);
+            
+            let output = document.getElementById('output');
+
+            if(avg >= 70) output.innerHTML = "합격";
+            else output.innerHTML = "불합격";
+        }       
+    </script>
+</body>
+</html>

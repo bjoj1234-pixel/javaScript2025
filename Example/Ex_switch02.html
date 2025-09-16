@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch문</title>
+</head>
+<body>
+    <button onclick="fruitPrice()" >과일 가격</button>
+    <input type="text" id="val">
+    <p id="output"></p>
+
+    <script>
+        function fruitPrice(){
+            let val = document.getElementById('val').value;
+            let output = document.getElementById('output');
+
+            switch(val){
+                case 'apple':
+                    output.innerHTML = '1,000원';
+                    break;
+                case 'banana':
+                    output.innerHTML = '3,000원';
+                    break;
+                case 'orange':
+                    output.innerHTML = '2,000원';
+                    break;
+                default:
+                    output.innerHTML = '해당 과일은 없습니다.';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
