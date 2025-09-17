@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문</title>
+</head>
+<body>
+    <h4>사용자 입력 횟수만큼 Hello 출력</h4>
+    <input type="number" id="inputNum">
+    <button onclick="result()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        // function result(){
+        //     let inputNum = Number(document.getElementById('inputNum').value);
+        //     let output = document.getElementById('output');
+        //     let firstNum = 1;
+        //     output.innerHTML = '';
+
+        //     while(inputNum >= firstNum){
+        //         output.innerHTML += "Hello<br>";
+        //         firstNum++;
+        //     }
+        // }
+
+        //선생님꺼
+        function result(){
+            let inputNum = Number(document.getElementById('inputNum').value);
+            let output = document.getElementById('output');
+            let firstNum = 1;
+            let result = '';
+
+            while(firstNum <= inputNum){
+                result += "Hello<br>";
+                firstNum++;
+            }
+            
+            output.innerHTML = result;
+        }
+        
+    </script>
+</body>
+</html>
