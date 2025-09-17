@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+<body>
+    <h4>1부터 ~n까지의 합</h4>
+    <input type="number" id="inputNum">
+    <button onclick="sum()">실행</button>
+    <p id="output"></p>
+    <p id="output2"></p>
+
+    <script>
+        function sum(){
+            let inputNum = Number(document.getElementById('inputNum').value);
+            let output = document.getElementById('output');
+            let result = 0;
+
+            for(let i=1; i<=inputNum; i++){
+                result += i;
+            }
+
+            output.innerHTML = `1부터 ${inputNum}까지의 합: ${result}`;
+        }
+
+        let output2 = document.getElementById('output2');
+        let result2 = '';
+
+        // 다중 for문
+        // for 안에 for가 또 존재함.
+        for(let i=1; i<=8; i++){   // 바깥 루프(가로줄)
+            for(let j=1; j<=i; j++){   // 안쪽 루프(별표시)
+                //출력할 * 누적
+                result2 += '*';
+            }
+            //줄바꿈을 위해 <br>태그를 누적
+            result2 += '<br>';
+        }
+        // result2값 출력
+        output2.innerHTML = result2;
+        
+
+    </script>
+
+</body>
+</html>

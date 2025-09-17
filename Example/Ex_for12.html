@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+<body>
+    <p id="star"></p>
+
+    <script>
+        let star = document.getElementById('star');
+        let line = 8;
+        let result = '';
+
+        for(let i=1; i<=line; i++){
+            // result += '';
+            for(let k=1; k<=i*2-1; k++){
+                result += '&nbsp';
+            }
+            for(let j=line-i; j>=0; j--){
+                result += '*';
+            }
+            result += '<br>'
+        }
+        star.innerHTML = result;
+      
+    </script>
+   
+
+</body>
+</html>

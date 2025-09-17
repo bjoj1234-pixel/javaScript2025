@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let result='';
+        const line = 5; //줄수
+
+        for(let i=1;i<=line;i++){
+
+            for(let k=line-1; k>=i; k--){
+                result += '&nbsp;';
+            }
+            for(let j=1;j<=i;j++){
+                result += '*';
+            }
+            result += '<br>';
+        }
+        output.innerHTML = result;
+
+    </script>
+</body>
+</html>

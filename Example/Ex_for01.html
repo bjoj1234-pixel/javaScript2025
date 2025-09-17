@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+<body>
+    <h4>1부터 10까지 출력</h4>
+    <p id="output"></p>
+
+    <script>
+        let i = 0;
+        let sum = '';
+        let output = document.getElementById('output');
+
+        for(i=1; i<=10; i++){
+            sum += i + ' ';            
+        }
+        
+        output.innerHTML = sum;
+
+        // while(num <= 10){
+        //     result = result + num + ' ';
+        //     num++;
+        // }
+        // output.innerHTML = result;
+    </script>
+</body>
+</html>

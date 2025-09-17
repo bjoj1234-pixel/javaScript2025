@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+<body>
+    <p id="star"></p>
+
+    <script>
+        let star = document.getElementById('star');
+        let result = '';
+        const line = 10;//줄수
+        
+
+        for(let i=1; i<=line; i++){//i<=line => 줄수
+
+            for(let k=1; k<=line-i; k++){ //line-i => 공백갯수
+                result += '&nbsp;';
+            }
+
+            for(let j=1; j<=(i*2)-1; j++){
+                result += '*';
+            }            
+            result += '<br>';
+        }
+        
+        star.innerHTML = result;
+
+    </script>
+   
+
+</body>
+</html>
