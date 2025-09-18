@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 연습</title>
+</head>
+<body>
+    <script>
+        // 배열의 생성 방법
+        // 1. 가장 기본 배열 생성 방식 => ranking = []
+        let ranking = ['jason','Alice','Candy','Chris','Tom'];
+        //배열은 위치를 index()로 인식한다.
+        // index는 0부터 시작한다.
+        // 고로 candy의 index는 2이다.
+        console.log(ranking[2]); //index + 1한 위치의 값 출력
+
+        // new 객체형식으로 배열 생성
+        // new Array()
+        let arrNumber = new Array();
+        console.log(arrNumber);
+
+        //대문자 array 사용 생성
+        let arrScore = Array(80,90,100);
+        console.log(arrScore);
+
+        let jArr = new Array('오렌지','포도','딸기');
+        console.log(jArr);
+         //                0    1       2      : index위치, length는 총 3
+        let arrTotal = ['korea',90,'2025-09-18'];
+        console.log(arrTotal[arrTotal.length-1]);//전체 length(3)의 -1을 하면 마지막 인덱스 값이 출력
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+   <label>숫자 배열 입력(예: 12,7,5,20,33,18)</label>
+   <input type="text" id="inputVal">
+   <button type="button" onclick="evenoddCheck()">결과확인</button>
+   <p id="output"></p>
+    
+    <script>
+        let numbers = [];        
+
+        function evenoddCheck(){      
+            let inputVal = document.getElementById('inputVal').value;
+            let output = document.getElementById('output');
+            let even = '';
+            let odd = '';
+            let result = '';             
+              
+            numbers = inputVal.split(',').map(Number);
+            //console.log(numbers);
+
+            for(let i=0; i<=numbers.length-1; i++){
+                if(numbers[i] % 2 == 0){
+                    even += numbers[i] + ',';
+                }else{
+                    odd += numbers[i] + ',';
+                }
+                //console.log(i);              
+            }
+            //slice(start array, end array) => 양수 : 왼 -> 오
+            //slice(start array, end array) => 음수 : 오 -> 왼
+            even = even.slice(0,-1); //짝수옆에 콤마를 없애려고 한것
+
+            result = `짝수: ${even} / 홀수: ${odd}`;
+            output.innerHTML = result;
+       }
+
+       
+    </script>
+</body>
+</html>

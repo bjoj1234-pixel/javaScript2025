@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 기초연습문제</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let scores = [90,75,88,60];
+        let text = '';
+
+        for(let i=0; i<=scores.length-1; i++){
+            if(scores[i] >= 80){
+                text += "합격 ";
+            }else{
+                text += "불합격 ";
+            }
+        }
+
+        output.innerHTML = '6번: ' + text;
+        
+        
+    </script>    
+</body>
+</html>

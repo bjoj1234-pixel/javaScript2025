@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 기초연습문제</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let arr2 = [10,20,30,40];
+        let result = '';
+
+        for(let i=0; i<=arr2.length-1; i++){
+            if(arr2[i] >= 25){
+                result += arr2[i] + ' ';
+            }
+        }
+
+        output.innerHTML = '15번: ' + result;
+
+    </script>    
+</body>
+</html>

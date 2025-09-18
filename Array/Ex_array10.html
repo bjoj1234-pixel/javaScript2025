@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+   <label>출석 배열 입력(출석,결석,지각) (예: 출석,결석,출석,지각,출석)</label>
+   <input type="text" id="inputVal">
+   <button type="button" onclick="chulCheck()">결과확인</button>
+   <p id="output"></p>
+    
+    <script>
+        let attendance = [];              
+        
+        function chulCheck(){
+            let inputVal = document.getElementById('inputVal').value;  
+            let output = document.getElementById('output');
+            let result = '';              
+            let attendance = inputVal.split(','); // split()은 특정문자를 빼는 기능과 동시에, 문자형(String) 배열로 다시 만들어줌.
+            //고로 map(String)을 해주지 않아도 됨.
+
+            for(let i=0; i<=attendance.length-1; i++){
+                // 자바스크립트는 ==은 정확한 비교가 어려움.(heap에 저장된 메모리값까지는 비교를 안함)
+                // === 는 정확한 메모리 값 비교
+                if(attendance[i].trim() === "출석"){ // trim() => 왼쪽, 오른쪽 공백을 제거하는 함수
+                    // 출석, 결석, 지각 => 이런식으로 문자 사이사이에 공백이 있으면 제대로 출력이 안되는데, trim()쓰면 해결됨.
+                    // trim()은 공백이라는 '문자'를 제거하는 함수이다. 숫자배열에서 사용하면 먹히지 않는다.(어짜피 숫자배열은 공백이 섞여있어도, 요소에 포함시켜서 인식을 안하기때문에)
+                    result += 'O, ';
+                }else if(attendance[i].trim() === "결석"){
+                    result += 'X, ';
+                }else{
+                    result += '△, ';
+                }
+            }            
+            result = result.slice(0,-2);// 맨 끝 문자 ', '을 없애기 위해 씀.
+            output.innerHTML = result;
+        }
+       
+    </script>
+</body>
+</html>

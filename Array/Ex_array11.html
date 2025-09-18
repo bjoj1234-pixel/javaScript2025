@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+   <label>온도 배열 입력 (예: 15,22,30,35,18)</label>
+   <input type="text" id="inputVal">
+   <button type="button" onclick="tempCheck()">결과 확인</button>
+   <p id="output"></p>
+    
+    <script>
+        let temps = [];
+
+        function tempCheck(){
+            let inputVal = document.getElementById('inputVal').value;
+            let output = document.getElementById('output');
+
+            let temps = inputVal.split(',').map(Number);
+            let result = '';
+
+            for(let i=0; i<=temps.length-1; i++){
+                if(temps[i] >= 30) result += `${temps[i]}: 뜨거움, `;
+                else if(temps[i] >= 20) result += `${temps[i]}: 적당, `;
+                else result += `${temps[i]}: 시원, `;                
+            }
+            result = result.slice(0,-2);
+            output.innerHTML = result;
+        }
+       
+       
+    </script>
+</body>
+</html>

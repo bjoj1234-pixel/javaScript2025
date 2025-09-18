@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+    <label>장바구니 가격 배열 입력 (예: 12000, 5000, 15000, 3000, 7000): </label>
+    <input type="text" id="inputVal">
+    <button type="button" onclick="cartCheck()">결과 확인</button>
+    <p id="output"></p>    
+    <script>
+        let cart = [];
+
+        function cartCheck(){
+            let inputVal = document.getElementById('inputVal').value;
+            let output = document.getElementById('output');
+            let result = '';
+
+            cart = inputVal.split(',').map(Number);
+
+            // for(let i=0; i<=cart.length-1; i++){
+            //     if(cart[i] >= 10000) result += `${cart[i]}: 고가, `;
+            //     else if(cart[i] >= 5000) result += `${cart[i]}: 중저가, `;
+            //     else result += `${cart[i]}: 저가, `;
+            // }
+            
+            for(let i=0; i<=cart.length-1; i++){
+                switch(true){
+                    case cart[i] >= 10000:
+                        result += `${cart[i]}: 고가, `;
+                        break;
+                    case cart[i] >= 5000:
+                        result += `${cart[i]}: 중저가, `;
+                        break;
+                    default:
+                        result += `${cart[i]}: 저가, `;
+                        break;
+                }
+            }
+
+            result = result.slice(0,-2);
+            output.innerHTML = result;
+        }       
+    </script>
+</body>
+</html>
