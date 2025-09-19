@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 키 비교</title>
+    <style>
+        /* body{
+            text-align: center;
+            border-style: none;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container .explain{
+            margin-bottom: 0;
+        }
+        .container .example{
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #inputVal{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 34px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 10px;
+        }
+        .container #output .line{
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 35px;
+        }
+        
+        .container #output .line .red{
+            margin-left: 10px;
+            background-color: #ff9090;        
+            color: #530e0e;
+        }
+        .container #output table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .container #output table th{
+            background-color: #d1d1d1;
+        }
+        .container #output table th,td{
+            border: 1px solid #1b3179;
+
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>학생 키 비교</h2>
+        <p class="explain">학생이름과 키를 입력하세요.</p>
+        <p class="example">(예:철수,172,영희,165,민수,180,수지,158,준호,175..)</p>
+        <input type="text" placeholder="학생이름과 키를 입력하세요." id="inputVal">
+        <button type="button" onclick="tallCheck()" >키 확인</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        // 학생이름
+        let student = [];
+        // 학생키
+        let tall = [];
+
+        function tallCheck(){
+            // 초기 입력값
+            let inputVal = document.getElementById('inputVal').value;
+            // split으로 콤마제거 후 재배열
+            let reVal = inputVal.split(',');
+            // 결과출력 태그
+            let output = document.getElementById('output');
+            // 결과 저장 변수
+            let result = '';
+
+            //학생이름,키 초기화
+            student = [];
+            tall = [];
+
+            for(let i=0; i<=reVal.length-1; i++){
+                if(reVal.length[i] % 2 == 0){
+                    student[i] = reVal.length[i];
+                }else{
+                    tall[i] = reVal.length[i];
+                }
+            }
+
+        }
+       
+    </script>    
+</body>
+</html>

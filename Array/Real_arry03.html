@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 가격 비교</title>
+    <style>
+        body{
+            text-align: center;
+            border-style: none;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container .explain{
+            margin-bottom: 0;
+        }
+        .container .example{
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #inputVal{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 34px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 10px;
+        }
+        .container #output span{
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .container #output .blue{
+            background-color: #9ad9ff;
+            color: #2441a1;
+        }
+        .container #output .red{
+            background-color: #ff9090;        
+            color: #530e0e;
+        }
+        .container #output table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .container #output table th{
+            background-color: #d1d1d1;
+        }
+        .container #output table th,td{
+            border: 1px solid #1b3179;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>상품 가격 비교</h2>
+        <p class="explain">상품 이름과 가격을 입력하세요.</p>
+        <p class="example">(예: 노트북,120000,마우스,30000,모니터,80000,키보드,20000...)</p>
+        <input type="text" placeholder="상품 이름과 가격을 입력하세요" id="inputVal">
+        <button type="button" onclick="goodsPriceCheck()" >상품 출력</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        //상품 목록
+        let goods = [];
+        //상품 가격
+        let goodsPrice = [];
+
+        function goodsPriceCheck(){
+            let inputVal = document.getElementById('inputVal').value;
+            let output = document.getElementById('output');
+            //인풋값에서 (',')제거해서 다시 배열
+            let reVal = inputVal.split(',');
+
+            //결과값 테이블
+            let result = `<table><tr><th>상품</th><th>가격</th><th>등급</th></tr>`;
+
+            //상품 목록 초기화
+            goods = [];
+            //상품 가격 초기화
+            goodsPrice = [];
+
+            for(let i=0; i<=reVal.length-1; i++){
+                if(i % 2 == 0){
+                    goods.push(reVal[i]);
+                }else{
+                    goodsPrice.push(Number(reVal[i]));
+                }
+            }
+
+            for(let j=0; j<=goodsPrice.length-1; j++){
+                if(goodsPrice[j] >= 50000){
+                    //5만원 이상일때 출력
+                    result += `<tr><td>${goods[j]}</td><td>${goodsPrice[j]}원</td><td><span class="red">고가</span></td></tr>`;
+                }else{
+                    //5만원 이하일때 출력
+                    result += `<tr><td>${goods[j]}</td><td>${goodsPrice[j]}원</td><td><span class="blue">저가</span></td></tr>`;
+                }
+            }
+            result += `</table>`;
+            output.innerHTML = result;
+        }
+       
+
+    </script>    
+</body>
+</html>

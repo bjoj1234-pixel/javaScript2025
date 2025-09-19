@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책 재고 현황</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #inputVal{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 17px;
+            line-height: 34px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container #output span{
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .container #output .blue{
+            background-color: #5ac1ff;
+            color: #2441a1;
+        }
+        .container #output .red{
+            background-color: #ff6565;        
+            color: #530e0e;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>책 재고 현황</h2>
+        <label>책 제목과 재고수량을 입력하세요.<br>(예: 자바,5,PHP,10,HTML,3,CSS,20...)</label>
+        <input type="text" placeholder="책 제목 재고수량 입력" id="inputVal">
+        <button type="button" onclick="bookNumCheck()" >재고 확인</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        //책 제목 배열
+        let book = [];
+        //책 재고수 배열
+        let bookNum = [];
+
+        function bookNumCheck(){
+            //인풋값
+            let inputVal = document.getElementById('inputVal').value;
+            //출력위치
+            let output = document.getElementById('output');
+
+            //인풋값을 split해서 콤마제거
+            let reVal = inputVal.split(',');
+
+            //결과값 저장
+            let result = '';
+
+           
+            for(let i=0; i<=reVal.length-1; i++){
+                
+                if(i % 2 == 0){
+                    //인풋값에서 책 제목만 book 배열에 저장
+                    book.push(reVal[i]);
+                }else{
+                    //인풋값에서 책 재고 수만 bookNum 배열에 저장
+                    bookNum.push(Number(reVal[i]));
+                }                
+            }
+
+            for(let j=0; j<=book.length-1; j++){            
+                if(bookNum[j] <= 5){
+                    // 재고가 5권 이하 일때 출력
+                    result += `<span class="red">${book[j]}: ${bookNum[j]}권 - 재고 부족</span><br>`
+                }else{
+                    // 재고가 5권 이상 일때 출력
+                    result += `<span class="blue">${book[j]}: ${bookNum[j]}권 - 재고 충분</span><br>`
+                }
+            }
+            
+            output.innerHTML = result;
+        }
+
+    </script>    
+</body>
+</html>

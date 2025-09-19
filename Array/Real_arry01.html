@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 성적표</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container #output span{
+            display: inline-block;
+            width: 100%;
+        }
+        .container #output .green{
+            background-color: #69d569;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a4d21;
+        }
+        .container #output .red{
+            background-color: #ff4747;
+            font-size: 16px;
+            font-weight: 400;
+            color: #530e0e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>학생 성적표</h2>
+        <button type="button" onclick="report()">성적표 출력</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        let student = ['철수','영희','민수','수지','준호'];
+        let score = [85,58,92,70,59];
+        
+        function report(){
+            let output = document.getElementById('output');
+            let result = '';
+
+            for(let i=0; i<=score.length-1; i++){
+                if(score[i] >= 60){
+                    result += `<span class='green'>${student[i]}: ${score[i]}점 - 합격</span><br>`;
+                }else{
+                    result += `<span class='red'>${student[i]}: ${score[i]}점 - 불합격</span><br>`;
+                }
+            }
+            output.innerHTML = result;
+        }
+
+    </script>    
+</body>
+</html>

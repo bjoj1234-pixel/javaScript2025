@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 평점 분석</title>
+    <style>
+        body{
+            text-align: center;
+            border-style: none;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container .explain{
+            margin-bottom: 0;
+        }
+        .container .example{
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #inputVal{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 34px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 10px;
+        }
+        .container #output .line{
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 35px;
+        }
+        
+        .container #output .line .red{
+            margin-left: 10px;
+            background-color: #ff9090;        
+            color: #530e0e;
+        }
+        .container #output table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .container #output table th{
+            background-color: #d1d1d1;
+        }
+        .container #output table th,td{
+            border: 1px solid #1b3179;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>영화 평점 분석</h2>
+        <p class="explain">영화명과 평점을 입력하세요.</p>
+        <p class="example">(예: 어벤져스,10,인셉션,9,기생충,9.5,라라랜드,7..)</p>
+        <input type="text" placeholder="영화명과 평점을 입력하세요." id="inputVal">
+        <button type="button" onclick="movieCheck()" >평점 확인</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function movieCheck(){
+            let inputVal = document.getElementById('inputVal').value;
+            let reVal = inputVal.split(',');
+            let output = document.getElementById('output');
+            let result = '';
+
+            let movieName = [];
+            let movieScore = [];
+
+            for(let i=0; i<=reVal.length-1; i++){
+                if(i % 2 == 0){
+                    movieName.push(reVal[i]);
+                }else{
+                    movieScore.push(Number(reVal[i]));
+                }
+            }
+
+            for(let j=0; j<=movieScore.length-1; j++){
+                
+                result += `<span class="line">${movieName[j]}: ${movieScore[j]}점`
+
+                if(movieScore[j] >= 8){
+                    //추천
+                    result += `<span class="red">추천!</span>`;
+                }
+                result += `</span><br>`;
+            }
+            output.innerHTML = result;
+        }
+    </script>    
+</body>
+</html>

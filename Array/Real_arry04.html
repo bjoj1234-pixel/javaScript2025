@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투표 결과</title>
+    <style>
+        body{
+            text-align: center;
+            border-style: none;
+        }
+        .container{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container h2{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 7px;
+        }
+        .container .explain{
+            margin-bottom: 0;
+        }
+        .container .example{
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .container button{
+            border: 0;
+            color: #fff;
+            background-color: #1b3179;
+            font-size: 17px;
+            padding: 10px 0px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .container button:hover{
+            background-color: #1d40b3;
+        }
+        .container #inputVal{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 34px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .container #output{
+            border-bottom: 3px solid #1b3179;
+            padding-bottom: 10px;
+        }
+        .container #output span{
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 35px;
+        }
+        
+        .container #output img{width: 30px;}
+        .container #output .gray{
+            background-color: #d4d4d4;        
+            color: #000000;
+        }
+        .container #output .green{
+            background-color: #91ffa9;
+            color: #115f2b;
+        }
+        .container #output table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .container #output table th{
+            background-color: #d1d1d1;
+        }
+        .container #output table th,td{
+            border: 1px solid #1b3179;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>투표 결과</h2>
+        <p class="explain">후보자 이름과 투표 수를 입력하세요.</p>
+        <p class="example">(예: 철수,120,영희,150,민수,90,민희,130..)</p>
+        <input type="text" placeholder="후보자 이름과 투표 수를 입력하세요" id="inputVal">
+        <button type="button" onclick="voteCheck()" >투표 집계</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        // 후보자 이름 배열
+        let voteName = [];
+        // 투표수 배열
+        let voteNum = [];
+
+        function voteCheck(){
+            // 초기 입력값
+            let inputVal = document.getElementById('inputVal').value;
+            // 초기 입력값에서 콤마 없앤후 배열로 저장
+            let reVal = inputVal.split(',');
+            // 출력되는 태그
+            let output = document.getElementById('output');
+            // 출력문자 저장
+            let result = '';
+            // 후보자 이름 초기화
+            voteName = [];
+            // 투표수 초기화
+            voteNum = [];
+
+            // reVal의 배열 수 만큼 반복
+            for(let i=0; i<=reVal.length-1; i++){
+                // 짝수 배열 -> 후보자 이름 배열에 저장
+                // 홀수 배열 -> (숫자로 변경후)투표수 배열에 저장
+                i % 2 == 0 ? voteName.push((reVal[i]).trim()) : voteNum.push(Number((reVal[i]).trim()));
+            }
+
+            // let maxName = voteName[0];
+            let maxNum = voteNum[0];
+            let maxNameArr = '';
+
+            let check = 0; // max값일 때 인덱스번호를 담을 변수
+
+            for(let j=0; j<=voteNum.length-1; j++){                       
+                if(maxNum <= voteNum[j]){   
+                    maxNum = voteNum[j];    
+                    check = j;
+                }  
+            }
+
+            for(let k=0; k<=voteNum.length-1; k++){                     
+                if(voteNum[k] == voteNum[check]){
+                    result += `<span class="green"><img src="img/cong.png">1등! ${voteName[k]}: ${voteNum[k]}표<img src="img/cong.png"></span><br>`;
+                }else{
+                    result +=  `<span class="gray">${voteName[k]}: ${voteNum[k]}표</span><br>`;
+                }
+            }
+            output.innerHTML = result;
+        }    
+    </script>    
+</body>
+</html>
