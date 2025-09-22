@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <style>
+        table{
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table td{
+            width: 50px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let result = `<table border="1">`;
+        let output = document.getElementById('output');
+
+        let arr01 = Array.from(Array(5),()=>new Array(5).fill(0));
+
+        let num = 1;
+
+        for(let i=0; i<arr01.length; i++){
+
+            result += `<tr>`;
+
+            for(let j=0; j<arr01[i].length; j++){
+                arr01[i][j] = num++; //후위연산은 일단먼저 저장 후,
+                // 결과가 다 끝나고나서, 증가를 시키기때문에, num = 1부터 시작함.
+
+                // console.log(arr01[i]);
+                result += `<td>${arr01[i][j]}</td>`    
+            }
+            //console.log(arr01[i]);
+
+            result += `</tr>`
+        }
+        result += `</table>`;
+
+        output.innerHTML = result;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let result = `<table border="1">`;
+        let output = document.getElementById('output');
+        const weekdays = ['일','월','화','수','목','금','토'];
+        let days = Array.from(Array(5),()=>new Array(7));
+        let num = 1;
+
+        result += `<tr>`;
+        for(let i=0; i<weekdays.length; i++){
+            result += `<th>${weekdays[i]}</th>`;
+        }
+        result += `</tr>`;
+
+        for(let i=0; i<days.length; i++){
+            result += `<tr>`;
+
+            for(let j=0; j<days[i].length; j++){
+                
+                days[i][j] = num++;
+                
+                if(days[i][j] <= 31){
+                    result += `<td>${days[i][j]}</td>`;     
+                }else{
+                    result += `<td></td>`;     
+                }
+            }
+            result += `</tr>`;
+        }
+        result += `</table>`;
+        output.innerHTML = result;
+
+    </script>    
+</body>
+</html>

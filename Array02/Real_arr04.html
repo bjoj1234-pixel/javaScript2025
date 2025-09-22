@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <style>
+   
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        let stock = [
+            [10,5,8,12],//과일
+            [20,15,18,25],//음료
+            [30,25,28,15]//간식
+        ];
+        //합계
+        let sum = 0;
+        //결과
+        let result = '';
+
+        //행 루프
+        for(let i=0;i<stock.length;i++){
+            //합계 초기화
+            sum = 0;
+            //카테고리 번호출력
+            result += `카테고리 ${i+1}: `;
+
+            //열 루프
+            for(let j=0;j<stock[i].length;j++){
+                //열 합계누적
+                sum += stock[i][j];
+                //행 index 개별출력
+                result += `${stock[i][j]},`;
+            }
+            // 행 마지막 index 콤마(,)제거
+            result = result.slice(0,-1);
+            //총재고(합계) 출력
+            result += ` | 총재고: ${sum}<br>`;
+        }
+        //p태그에 결과 출력
+        output.innerHTML = result;
+    </script>    
+</body>
+</html>

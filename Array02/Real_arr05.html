@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <style>
+   
+    </style>
+</head>
+<body>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <script>
+        let output1 = document.getElementById('output1');
+        let output2 = document.getElementById('output2');
+        let output3 = document.getElementById('output3');
+        let names = ['홍길동','개나리','진달래'];
+        let subjects = ['국어','영어','수학'];
+        let scores = [
+            [85,90,78],//홍길동
+            [92,88,95],//개나리
+            [76,85,83]//진달래
+        ];
+        let result1 = '[학생별 총점과 평균]<br>';
+        let result2 = '[과목별 평균]<br>';
+        let result3 = '[최고 점수 학생]<br>';
+        //총점
+        let totalScore = 0;
+        //과목별 총점
+        let sub_total = 0;
+        //과목별 평균
+        let sub_avg = 0;
+        //최대값 변수
+        let max = 0;
+        let maxName = '';
+
+        for(let i=0;i<scores.length;i++){
+            //총점 리셋
+            totalScore=0;
+            //과목별 총점 리셋
+            sub_total = 0;
+
+            for(let j=0;j<scores[i].length;j++){
+                //총점       
+                totalScore += scores[i][j];
+                //과목별 총점
+                sub_total += scores[j][i];
+
+                if(max < scores[i][j]){
+                    max = scores[i][j];
+                    maxName = names[i];
+                }
+                
+            }
+            
+            result1 += `${names[i]} 총점: ${totalScore}, 평균: ${(totalScore/scores.length).toFixed(1)} <br>`;                               
+
+            //과목별 평균계산
+            sub_avg = sub_total/scores.length;
+            
+            result2 += `${subjects[i]} 평균: ${sub_avg.toFixed(1)}<br>`;            
+        }
+        result3 += `${maxName} (${max}점)`;
+
+        output1.innerHTML = result1;
+        output2.innerHTML = result2;
+        output3.innerHTML = result3;
+
+        
+        
+    </script>    
+</body>
+</html>

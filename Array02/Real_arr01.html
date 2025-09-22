@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let scores = [
+            [85,90,80],
+            [70,60,75],
+            [95,100,90]
+        ];
+        //평균값 변수
+        let avg = 0;
+        let sum = 0;
+        let output = document.getElementById('output');
+        let result = '';
+
+        for(let i=0;i<scores.length;i++){
+            sum = 0;
+            avg = 0;
+            
+            result += `학생 ${i+1}: `;
+
+            for(let j=0;j<scores[i].length;j++){
+                result += `${scores[i][j]},`;
+                //총점
+                sum += scores[i][j];   
+                avg = sum / scores[i].length;     
+                //console.log(scores[i].length);
+            }
+            result = result.slice(0,-1);
+            result += ` | 총점: ${sum} `;
+            
+            //평균값: 총점 나누기 3
+        
+            result += `평균: ${avg.toFixed(2)}<br>`;
+            //console.log(result);
+        }
+        output.innerHTML = result;
+    </script>    
+</body>
+</html>

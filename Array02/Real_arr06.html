@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 - 노션문제</title>
+    <style>
+        img{width: 150px;}
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById('output');
+        let imgArr = [
+            [1011,'산'],
+            [1025,'강아지'],
+            [1003,'건물'],
+            [1035,'해변'],
+            [1040,'숲'],
+        ];
+
+        //행 루프
+        for(let i=0;i<imgArr.length; i++){
+            //열 루프
+            for(let j=0;j<imgArr[i].length;j++){
+                //첫번째 열
+                if((j+1) % 2 != 0){
+                    //이미지 주소저장
+                    imgArr[i][j] = `<img src='https://picsum.photos/id/${imgArr[i][j]}/400/300'>`;
+                }else{
+                    //두번째 열
+                    //글자 저장
+                    imgArr[i][j] = `=> ${imgArr[i][j]}`;
+                }  
+                //출력
+                output.innerHTML += imgArr[i][j];    
+            }
+            
+        }      
+
+    </script>    
+</body>
+</html>
