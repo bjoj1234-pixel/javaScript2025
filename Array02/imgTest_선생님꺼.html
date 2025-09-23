@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 반복 출력 연습</title>
+    <style>
+        .img-container{
+            display: flex;
+            margin-top: 20px;
+            justify-content: center;
+            gap: 15px;
+        }
+        .card{
+            text-align: center;
+        }
+        .img-container .card img{
+            width: 200px;
+            height: 150px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 5px gray;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>이미지 출력</h2>
+    <div class="img-container" id="gallery"></div>
+    <script>
+        let gallery = document.getElementById('gallery');
+        // 5행 2열
+        let imgList = [
+            ['https://picsum.photos/id/1011/400/300','산'],
+            ['https://picsum.photos/id/1025/400/300','강아지'],
+            ['https://picsum.photos/id/1003/400/300','건물'],
+            ['https://picsum.photos/id/1035/400/300','해변'],
+            ['https://picsum.photos/id/1040/400/300','숲']
+        ];
+
+        // 행 루프(5번)
+        for(let i=0; i<imgList.length; i++){
+            //열 루프(2번)
+            for(let j=0; j<imgList[i].length; j++){
+    
+                if(j===0){
+                //빽틱내에 따옴표는 큰따옴표"" 로 들어가야됨.
+                    gallery.innerHTML += `<div class="card"> 
+                    <img src= "${imgList[i][0]}" alt="${imgList[i][1]}"> 
+                    <p>${imgList[i][1]}</p></div>`;
+                    //어짜피 0번째 열은 이미지, 1번째 열은 이름이 들어가기때문에 아예 숫자를 넣어줌.
+                }
+            }
+            
+        }      
+
+    </script>    
+</body>
+</html>

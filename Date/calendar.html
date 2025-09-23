@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+</head>
+<body>
+    <div class="calendar">
+        <div class="cal_top">
+            <button type="button" onclick="calendar_minus()">◀</button>
+            <span id="output1"></span>
+            <button type="button" onclick="calendar_plus()">▶</button>
+        </div>
+        <table id="output2"></table>
+    </div>
+    <script>
+        let output1 = document.getElementById('output1');
+        let output2 = document.getElementById('output2');
+        //오늘
+        let today = new Date();
+        //오늘 년도
+        let todayYear = today.getFullYear();
+        //오늘 월
+        let todayMonth = today.getMonth();
+        //console.log(todayMonth);
+        
+        //일단 output에 오늘날짜 표시
+        output1.innerHTML = `${todayYear}년 ${todayMonth+1}월`;
+
+        //현재 선택(표시)된 년도, 월
+        let selectDate = new Date();
+      
+        
+        //년도,월 감소 버튼
+        function calendar_minus(){                                   
+            if(todayMonth > 1){
+                todayMonth--;
+            }else{
+                todayMonth = 12;
+                todayYear--;
+            }
+            //현재 선택(표시)된 년도, 월 출력
+            output1.innerHTML = `${todayYear}년 ${todayMonth}월`;
+
+            //현재 선택(표시)된 년도, 월 저장
+            selectDate.setFullYear(todayYear);
+            selectDate.setMonth(todayMonth);
+            
+        }
+          console.log(selectDate);
+        //년도,월 증가 버튼
+         function calendar_plus(){                                   
+            if(todayMonth < 12){
+                todayMonth++;
+            }else{
+                todayMonth = 1;
+                todayYear++;
+            }
+            //현재 선택(표시)된 년도, 월 출력
+            output1.innerHTML = `${todayYear}년 ${todayMonth}월`;
+            
+            //현재 선택(표시)된 년도, 월 저장
+            selectDate.setFullYear(todayYear);
+            selectDate.setMonth(todayMonth);
+
+
+            let selectDay = selectDate.getMonth();
+
+            console.log(selectDay);
+        }
+
+        
+
+        //요일이름 배열
+        let dayName = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+        //달력 빈 배열
+        let calArr = Array.from(Array(5),()=>Array(7));
+        
+
+
+        // for(let i=0;i<calArr.length; i++){
+        //     for(let j=0;j<calArr[i].length; j++){
+
+        //     }
+        // }
+            
+
+    </script>    
+</body>
+</html>

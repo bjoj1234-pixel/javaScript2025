@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 기초 연습문제</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button type="button" onclick="showYear()">현재 연도 출력</button>
+    <p id="output1"></p>
+
+    <button type="button" onclick="showDay()">오늘 요일 출력</button>
+    <p id="output2"></p>
+
+    <button type="button" onclick="showTime()">현재 시간 출력</button>
+    <p id="output3"></p>
+
+    <button type="button" onclick="birth2()">특정 날짜까지 남은 일수 계산</button>
+    <p id="output4"></p>
+
+
+    <script>
+        function showYear(){
+            let output1 = document.getElementById('output1');
+            let now = new Date();
+            let nowYear = now.getFullYear();
+
+            output1.innerHTML =`올해는 ${nowYear}년 입니다.`;
+        }
+
+        function showDay(){
+            let output2 = document.getElementById('output2');
+            let now = new Date();
+            let nowDay = now.getDay();
+            let week = ['일','월','화','수','목','금','토'];
+            let weekDay = '';
+            
+            for(let i=0; i<week.length; i++){
+                if(i === nowDay){
+                    weekDay = week[i];
+                    break;
+                }
+            }
+            output2.innerHTML = `오늘은 ${weekDay}요일 입니다.`;
+        }
+
+        function showTime(){
+            let output3 = document.getElementById('output3');
+            let now = new Date();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+
+            output3.innerHTML = `현재 시간: ${hour}:${min}:${sec}`;
+        }
+
+        // function birth(){
+        //     let output4 = document.getElementById('output4');
+
+        //     let now = new Date();
+        //     let now2 = now.setFullYear(2000);
+
+        //     let myBirth = new Date('1985/9/10');
+        //     let myBirth2 = myBirth.setFullYear(2000);
+
+        //     let remain = 365 - ((now-myBirth2) / 86400000);
+            
+        //     output4.innerHTML = `생일까지 ${remain.toFixed(0)}일 남았습니다.`;
+        // }
+        //선생님꺼
+        //생일 : 2025-9-30
+        //오늘날짜 : 2025-9-23
+
+
+        function birth2(){
+            let output4 = document.getElementById('output4');
+            let now = new Date();
+            let myBirth = new Date('2025/9/20');
+            now.setHours(0,0,0,0); // 현재 시간을 0시0분0초로 세팅(초기화)
+            myBirth.setHours(0,0,0,0); // 생일의 시간을 0시0분0초로 세팅(초기화)
+
+            let remain1 = 0;
+            let remain2 = 0;
+            
+            if(now <= myBirth){
+                remain1 = ((myBirth - now) / 86400000).toFixed(0);
+                // getTime()이용하여 시간까지 빼기
+                remain2 = ((myBirth.getTime() - now.getTime()) / 86400000).toFixed(0);
+                
+                output4.innerHTML = `생일이 ${remain1}일 지났습니다.`;
+            }else{
+                remain1 = ((now - myBirth) / 86400000).toFixed(0);
+                // getTime()이용하여 시간까지 빼기
+                remain2 = ((now.getTime() - myBirth.getTime()) / 86400000).toFixed(0);
+                
+                output4.innerHTML = `생일까지 ${remain1}일 남았습니다.`;
+            }
+            
+            
+        }
+
+    </script>    
+</body>
+</html>
