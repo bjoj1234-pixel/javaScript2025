@@ -48,7 +48,7 @@
             selectDate.setMonth(todayMonth);
             
         }
-          console.log(selectDate);
+          //console.log(selectDate);
         //년도,월 증가 버튼
          function calendar_plus(){                                   
             if(todayMonth < 12){
@@ -67,15 +67,17 @@
 
             let selectDay = selectDate.getMonth();
 
-            console.log(selectDay);
+            //console.log(selectDay);
         }
 
-        
+        calendar_minus();
+        calendar_plus();
+        console.log(selectDate);
 
         //요일이름 배열
         let dayName = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
         //달력 빈 배열
-        let calArr = Array.from(Array(5),()=>Array(7));
+        let calArr = Array.from(Array(5),()=>new Array(7));
         
 
 

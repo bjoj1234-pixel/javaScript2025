@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 ~ 10번 Date 기초 연습문제</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button type="button" onclick="dateComp()">날짜 비교</button>
+    <p id="output6"></p>
+
+    <button type="button" onclick="monthLast()">월의 마지막 날 구하기</button>
+    <p id="output7"></p>
+
+    <button type="button" onclick="findDay()">특정 요일 찾기</button>
+    <p id="output8"></p>
+
+    <button type="button" onclick="timeCalc()">시간 차 계산</button>
+    <p id="output9"></p>
+
+    <button type="button" onclick="dayMessage()">요일에 따라 메시지 출력</button>
+    <p id="output10"></p>
+
+
+    <script>
+        let output6 = document.getElementById('output6');
+        let output7 = document.getElementById('output7');
+        let output8 = document.getElementById('output8');
+        let output9 = document.getElementById('output9');
+        let output10 = document.getElementById('output10');
+
+        //날짜 비교 (미래)
+        function dateComp(){
+            // 2025-9-23 저장
+            let date1 = new Date('2025-9-23');
+            // 2025-12-25 저장
+            let date2 = new Date('2025-12-25');
+
+            // 첫문장 출력
+            let result= `${date1.getFullYear()}년 ${date1.getMonth()+1}월 ${date1.getDate()}일과 ${date2.getFullYear()}년 ${date2.getMonth()+1}월 ${date2.getDate()}일 두 날짜 중<br>`;           
+
+            // 두 날짜 비교
+            // date1이 더 크면
+            if(date1 > date2){
+                //date1 더 클때 출력
+                result += `${date1.getFullYear()}년 ${date1.getMonth()+1}월 ${date1.getDate()}일이 더 미래입니다.`;
+            
+            // date2가 더 크면
+            }else if(date1 < date2){
+                // date2가 더 클때 출력
+                result += `${date2.getFullYear()}년 ${date2.getMonth()+1}월 ${date2.getDate()}일이 더 미래입니다.`;
+            
+            // date1 과 date2가 같을때
+            }else{
+                result += `동일한 날짜 입니다.`;
+            }
+
+            //output6에 출력
+            output6.innerHTML = result;
+        }
+
+        //월의 마지막 날 구하기
+        function monthLast(){
+            //오늘 날짜
+            let today = new Date();
+            //이번년도
+            let thisYear = today.getFullYear();
+            //이번달
+            let thisMonth = today.getMonth();
+            //이번일
+            let thisDate = today.getDate();
+            //결과 출력변수
+            let result= '';
+
+            //마지막 날짜 지정
+            let LastDate = new Date(thisYear,thisMonth+1,0);
+            //마지막 날짜 저장
+            let LastDate2 = LastDate.getDate();
+
+            //결과 출력
+            result += `${thisMonth+1}월의 마지막 날은 ${LastDate2}입니다.`;
+            //output7에 결과출력
+            output7.innerHTML = result;
+        }
+
+        //1. today()
+        //2. 1일 무슨요일인지 구함
+        //3. year, month 구함
+        function findDay(){
+
+            let result = '';
+             //오늘 날짜
+            let today = new Date();
+            //이번년도
+            let thisYear = today.getFullYear();
+            //이번달
+            let thisMonth = today.getMonth();
+            //이번요일
+            let thisDay = today.getDay();
+
+            //1일 지정
+            let first = new Date(thisYear,thisMonth,1);
+
+            //요일(0 일 1 월 2 화 3 수 4 목 5 금 6 토)
+            
+            //while문 방식
+            while(first.getDay() !== 5){
+                first.setDate(first.getDate()+1); //5가 될때까지 1씩 증가
+            }
+            result += `이번달의 첫번째 금요일은 ${first.getDate()}입니다.`;
+           
+            //for문 방식
+            // let firstDate = 0;//금요일 넣을 변수선언
+
+            // for(let i=1; i<=7; i++){
+            //     let first = new Date(thisYear,thisMonth,i);
+            //     // if문 이용하여 금요일지 확인
+            //     if(first.getDay() === 5){
+            //         firstDate = i;
+            //         break;
+            //     }
+            // }
+            //result += `이번달의 첫번째 금요일은 ${firstDate}입니다.`;
+
+            
+           
+            output8.innerHTML = result;
+
+        }
+
+        //시간차계산
+        function timeCalc(){
+            //현재시간
+            let today = new Date();
+            //오후 7시 세팅
+            let sevenHour = today.setHours(19);            
+
+        }
+
+        //요일에 따라 메시지 출력
+        function dayMessage(){ 
+            //오늘 날짜
+            let today = new Date();
+            // 요일 저장
+            let thisDay = today.getDay();
+            // 일수 저장
+            let thisDate = today.getDate();
+            let result = '';
+
+            for(i=0; i<7; i++){
+                if(thisDay === 0 || thisDay === 6){
+                    result += `주말이에요!`;
+                }else{
+                    thisDay++;
+                    result += `열심히 일하는 날!`;
+                }
+            }
+
+            output10.innerHTML = result;
+        }
+
+        
+
+    </script>    
+</body>
+</html>

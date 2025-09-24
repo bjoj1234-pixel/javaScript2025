@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+</head>
+<body>
+    <button type="button" onclick="correct()">정답 보기</button>
+    <p id="output"></p>
+    <script>        
+        function correct(){            
+            let output = document.getElementById('output');
+
+            let abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';                      
+        
+            //랜덤 비밀번호 저장변수
+            let random = '';
+
+            //그중에 5글자
+            for(let i=0; i<=4; i++){  
+                //abc 랜덤 인덱스 숫자
+                let abcIndex = Math.floor(Math.random()*abc.length);
+                
+                //랜덤 비밀번호 알파벳 누적
+                random += abc[abcIndex];                
+            }
+
+
+
+
+            output.innerHTML = `생성된 비밀번호 : ${random}`;
+            
+        }
+    </script>
+</body>
+</html>

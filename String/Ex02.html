@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+</head>
+<body>
+    <button type="button" onclick="correct()">정답 보기</button>
+    <p id="output"></p>
+    <script>        
+        function correct(){
+            let javaString = "JavaScript";
+            let random = Math.floor(Math.random()*javaString.length);
+            
+            let output = document.getElementById('output');
+
+            output.innerHTML = `뽑힌 글자 : ${javaString[random]}`;
+        }
+    </script>
+</body>
+</html>

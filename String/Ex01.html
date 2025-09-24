@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+</head>
+<body>
+    <button type="button" onclick="correct()">정답 보기</button>
+    <p id="output"></p>
+    <script>
+        function correct(){
+            let names = ["철수", "영희", "민수", "지영", "수현"];
+            
+            //Math.random(): 0 ~ 1 사이 소수출력
+            //Math.random() X names.length(인덱스 갯수) = (0 ~ 1) X 5 = 0 ~ 5.1231231
+            //Math.floor()로 소수점 제거
+            namesIndex = Math.floor(Math.random()*names.length);
+
+            output.innerHTML = `뽑힌이름: ${names[namesIndex]}`;
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+</head>
+<body>
+    <button type="button" onclick="correct()">정답 보기</button>
+    <p id="output"></p>
+    <script>        
+        function correct(){            
+            let output = document.getElementById('output');
+            //문자열
+            let txt = " Hello JavaScript ";
+            //문자열 공백제거
+            let txtTrim = txt.trim();
+            //문자열 공백제거한 길이측정
+            let txtLength = txtTrim.length;
+
+            let result = `공백제거 후 : [${txtTrim}], 길이: ${txtLength}`;
+
+            output.innerHTML = result;
+            
+        }
+    </script>
+</body>
+</html>

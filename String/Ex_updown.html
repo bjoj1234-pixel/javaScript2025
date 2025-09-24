@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+    <style>
+        *{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 300px;margin: 0 auto;
+        }
+        h1,.bottom_box{
+            background: #000;
+            color: #fff;
+            font-size: 20px;
+            line-height: 34px;
+        }
+        .container .intro{
+            padding: 50px 0;
+        }
+        .container #output1{
+            height: 200px;
+            line-height: 200px;
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞추기 게임</h1>
+        <p class="intro">1에서 100사이의 수를 입력하세요</p>
+        <input type="text" id="inputVal">
+        <button type="button" onclick="updown()">확인</button>
+        <p id="output1"></p>
+        <p class="bottom_box">
+            <span>시도 횟수: <span id="output2">0</span>회</span>
+        </p>
+    </div>
+    <script>
+        //시도횟수 초기화
+        let tryNum = 0;        
+        //1~100 랜덤숫자 추출
+        let randomNum = Math.floor(Math.random()*100 + 1);
+        console.log(randomNum);
+
+        function updown(){            
+            let output1 = document.getElementById('output1');
+            let output2 = document.getElementById('output2');
+            //업다운빙고 문자변수
+            let updown = '';
+            
+            //인풋값 숫자로 변형
+            let inputVal = Number(document.getElementById('inputVal').value);           
+                   
+            if(inputVal > randomNum){
+                updown = 'Down!'
+            }else if(inputVal < randomNum){
+                updown = 'Up!'
+            }else{
+                updown = 'Bingo!'
+            }       
+            //시도횟수 누를때마다 누적
+            tryNum++;
+           
+            output1.innerHTML = updown;
+            output2.innerHTML = tryNum;            
+        }
+    </script>
+</body>
+</html>

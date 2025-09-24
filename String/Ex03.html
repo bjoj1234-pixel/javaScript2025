@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math연습문제</title>
+</head>
+<body>
+    <button type="button" onclick="correct()">정답 보기</button>
+    <p id="output"></p>
+    <script>        
+        function correct(){            
+            let output = document.getElementById('output');
+            let apple = "apple";
+            let watermelon = "watermelon";
+
+            let result = '더 긴 단어: ';
+            
+            // Math.max로 길이비교
+            let lengVS = Math.max(apple.length,watermelon.length);
+
+            if(apple.length > watermelon.length){
+                result += `${apple}`;
+            }else{
+                result += `${watermelon}`;
+            }
+
+            result += ` (길이: ${lengVS})`;
+
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

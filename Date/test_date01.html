@@ -58,13 +58,15 @@
     console.log(now / 86400000 / 365); 
     //년도수 계산: 55.76469633900938 => 1970-1-1 + 55 => 2025년
 
-    //Date parse : 각 나라별로 시간을 출력
+    //Date.parse : (괄호안에 문자를 반드시 입력해야됨)
+    // 1970년 1월 1일 00시 00분 00초 UTC를 기준으로 경과 한 밀리초를 반환
+    // 각 나라별로 시간을 출력
     let d = Date.parse('Jan 2, 1970 00:00:00 UTC'); //세계협정시간
     console.log(d); //86400000 하루가 지나서 이렇게 출력됨
 
     //Date의 메서드를 이용해서 get~ : 출력, set~ : 수정
     //getter, setter
-    let today03 = new Date()
+    let today03 = new Date();
     //오늘 날짜의 년도만 추출하고 싶음
     let year01 = today03.getFullYear();
     console.log('오늘날짜의 년도 : ' + year01); //2025
@@ -80,15 +82,15 @@
     let today05 = new Date();
     today05.setMonth(2);// 1월이 0부터 시작하여, 3월을 지정하려면 2를 넣어야됨
     let month = today05.getMonth();
-    console.log('수정한 날짜의 월 : ' + month); // 2넣었을때 2나옴(넣은숫자그대로)
+    console.log('수정한 날짜의 월 : ' + (month+1)); // 0부터 시작하기때문에 +1해서 출력
     console.log('전체를 출력했을때 : ' + today05); //2넣었을떄 3월로 나옴
 
     //월과 일 수정
     let today06 = new Date();
-    today06.setMonth(11,1);//월,일
-    let month02 = today06.getMonth();//11 => 11+1: 12월
-    let day02 = today06.getDay();//1일
-    let date05 = today06.getDate();
+    today06.setMonth(9,1);//월,일
+    let month02 = today06.getMonth();//9 => 9+1: 10월
+    let day02 = today06.getDay();//요일 (0이 일요일~ 6일 토요일)
+    let date05 = today06.getDate();//일수
     console.log(month02,day02,date05);
     
     //요일 출력

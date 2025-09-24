@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math객체 기본설명</title>
+</head>
+<body>
+    <script>
+        let num = 3.1234;
+        let num2 = 6.5678;
+        let num3 = 30.9876;
+        
+        // math의 프로퍼티는 데이터 타입 숫자이다.
+        console.log(Math.ceil(num)); //4 (소수점)무조건 올림
+        console.log(Math.ceil(num2));//7 (소수점)무조건 올림
+    
+        console.log(Math.floor(num));//3 (소수점)무조건 내림
+        console.log(Math.floor(num2));//6 (소수점)무조건 내림       
+        
+
+        //toFixed()는 소수점 자리를 반올림하면서 문자열이된다
+        //그리고 괄호(3)안에 숫자만큼만 소수점 자리를 표시한다.
+        console.log(num2.toFixed(1));
+        console.log(typeof num.toFixed(0));
+        
+        //toFixed() => 숫자로 변경하면서 마지막자리 반올림
+        console.log(Number(num2.toFixed(2)));
+        console.log(Number(num2.toFixed(0)));// 0이면 소수점을 표시 X + 소수점 첫째자리를 반올림 시킴
+
+        //round()는 소수 첫번째 자리수가 5이상이면 반올림 함, 아니면 반올림 안함
+        console.log('소수점 반올림:'+Math.round(num));
+        console.log('소수점 반올림:'+Math.round(num2));
+        console.log('소수점 반올림:'+Math.round(num3));
+
+        //abs : 절대값 음수도 양수도 무조건 양수
+        console.log('무조건 양수' + Math.abs(-3));
+
+        //sqrt : 제곱근
+        console.log('제곱근' + Math.sqrt(36));
+
+        //난수 발생 : 0 ~ 1 미만까지 수를 무작위로 출력
+        //random() 난수 발생 프로퍼티
+        
+        //0 ~ 100 중에
+        console.log(Math.random()*100);
+        //Math.floor(): 소수점 빼고 정수로 출력
+        console.log(Math.floor(Math.random()*100));
+
+        //1부터 100까지 난수 발생
+        console.log(Math.floor(Math.random()*100)+1);
+        //최대값
+        console.log(Math.max(-1,2,5,-3));
+        //최저값
+        console.log(Math.min(-1,2,5,-3));
+
+        
+    </script>
+</body>
+</html>
