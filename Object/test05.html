@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 기초문제</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let cart = [
+            {id:1,name:'노트북',price:1000000,quantity:1},
+            {id:2,name:'마우스',price:20000,quantity:2},
+            {id:3,name:'키보드',price:50000,quantity:1},
+        ];
+
+        let result = '';
+        let calc = 0;
+        let total = 0;
+
+        for(let i=0; i<cart.length; i++){
+            let c = cart[i];
+            calc = c.price * c.quantity;
+            total += c.price * c.quantity;
+            //.toLocaleString('ko-kr') :  금액에 ,찍어주는거(한국기준)
+            result += `${c.name} 금액: ${calc.toLocaleString('ko-kr')}원<br>`;
+        }
+
+        result += `<b>장바구니 총 금액: ${total.toLocaleString('ko-kr')}원</b>`;
+
+        output.innerHTML = result;
+    </script>
+</body>
+</html>
