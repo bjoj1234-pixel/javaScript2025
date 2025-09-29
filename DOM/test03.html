@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 기초문제</title>
+</head>
+<body>
+    <!-- 태그작성: 5~8번 문제 -->
+    <!-- 5번 -->
+    <ul>        
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    <!-- 6번 -->
+    <ul id="list"></ul>
+
+    <!-- 7번 -->
+     <ul class="deleteLi">
+        <li>삭제될 항목</li>
+        <li>남길 항목</li>
+     </ul>
+
+    <!-- 8번 -->
+    <div id="content"></div>
+
+
+    <script>
+        //5번
+        let allLi = document.querySelectorAll('ul li');
+
+        for(let i=0;i<allLi.length;i++){
+            allLi[i].textContent = "과일"; 
+        }
+
+        //6번
+        let listUl = document.getElementById('list');
+        let newLi = document.createElement('li');
+        listUl.appendChild(newLi).textContent = '새 항목';
+
+        //7번
+        let deleteLi = document.querySelector('.deleteLi>li');
+        deleteLi.remove();
+
+        //8번
+        let content = document.getElementById('content');
+        content.innerHTML = `<p>DOM 연습</p>`;        
+
+    </script>
+   
+    
+</body>
+</html>

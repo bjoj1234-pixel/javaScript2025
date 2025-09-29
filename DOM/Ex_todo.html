@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 연습문제</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .todo-container{
+            width: 350px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px #adadad;
+            border-radius: 10px;
+            padding: 30px 20px 35px;
+            text-align: center;
+        }
+        .todo-container h1{
+            margin: 0;
+            padding-bottom: 20px;
+            font-size: 24px;
+        }
+        .todo-container #task,
+        .todo-container button{
+            height: 40px;
+            vertical-align: bottom;
+            padding: 0 10px;
+            border-radius: 10px;
+            border: 1px solid #bdbdbd;
+        }
+        .todo-container #task{
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>할 일 목록</h1>
+        <div class="input-area">
+        </div>
+        <input id="task" type="text" placeholder="할 일 입력" />
+        <button onclick="addTask()">추가</button>
+        <ul id="tasks"></ul>
+    </div>
+   
+    <script>
+        function addTask(){
+            // 입력값
+            let inputVal = document.getElementById('task').value.trim();
+            // task ul 선택
+            let taskUl = document.getElementById('tasks');
+            // task li 생성
+            let taskLi = document.createElement('li');                       
+
+            // 생성된 li를 taskUl에 연결
+            taskUl.appendChild(taskLi);
+            // 연결된 li에 입력값을 저장
+            taskLi.textContent = inputVal;
+
+            if(inputVal == ' '){
+                return;
+            }
+
+            // li에 넣을 X버튼 생성
+            let xBtn = document.createElement('button');
+            
+            // 생성된 li에 X버튼 연결 & remove function 집어넣음
+            // taskLi.appendChild(xBtn).setAttribute('onclick','removeTask()');
+
+            taskLi.appendChild(xBtn);
+            // 생성된 li에 x버튼 연결
+            xBtn.textContent = 'x';
+            
+            // x버튼 클릭시 함수생성
+            // 함수안에 또 다른 함수 생성
+            //변수이름.onclick = function(){}(값)
+            xBtn.onclick = function(){
+                //xBtn.parentNode.remove();
+                taskLi.remove(); // createElement로 생성한 li는 전체 li를 선택하지않고, 딱 클릭한곳에 해당되는것만 지정이됨. 그래서 for문이 필요가 없음.
+            };
+            // 위랑 같은 방법
+            // xBtn.addEventListener('click',() => {
+            //     taskLi.remove();
+            // });
+
+            //inputVal.setFocus()  input의 커서 위치
+            //inputVal = '';
+        }
+
+    </script>
+   
+    
+</body>
+</html>

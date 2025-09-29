@@ -38,12 +38,13 @@ ul,li{
     color: #fff;
     text-align: center;
     font-size: 17px;
-    padding-bottom: 15px;
+    padding-bottom: 37px;
+    line-height: 20px;
 }
 /* 좌측 음료선택화면 - 섹션 */
 .order_menu .section1{
     position: relative;
-    padding: 38px 22px;
+    padding: 40px 30px;
     background-color: #efefef;
     border-radius: 0 10px 10px 10px;
 }
@@ -57,11 +58,13 @@ ul,li{
     background-color: #efefef;
     font-size: 18px;
 }
+/* 좌측 음료선택화면 - menu 부모ul */
 .order_menu .section1 .menubox ul{
     display: flex;
     gap: 10px;    
     flex-wrap: wrap;
 }
+/* 좌측 음료선택화면 - menu의 음료 개별 li */
 .order_menu .section1 .menubox ul li{
     flex-basis: 23.5%;
     background-color: #fff;
@@ -71,6 +74,7 @@ ul,li{
     border-radius: 10px;
     box-shadow: 0 0 5px #d7d7d7;
 }
+/* 좌측 음료선택화면 - hot / ice */
 .order_menu .section1 .menubox ul li .coffee_temp{
     position: absolute;
     top: 5px;
@@ -84,15 +88,18 @@ ul,li{
     font-size: 14px;
     border-radius: 10px;
 }
+/* 좌측 음료선택화면 - 음료 이미지 */
 .order_menu .section1 .menubox ul li .coffee_img{
-    height: 105px;
-    background-position: 50% 50%;
-    background-size: 53%;
+    height: 90px;
+    background-position: 50% 58%;
+    background-size: 45%;
     background-repeat: no-repeat;
 }
+/* 좌측 음료선택화면 - 음료 이름 */
 .order_menu .section1 .menubox ul li .coffee_tit{
     font-weight: 600;
 }
+/* 좌측 음료선택화면 - 음료 가격 */
 .order_menu .section1 .menubox ul li .coffee_price{
     line-height: 19px;
     font-size: 15px;
@@ -105,24 +112,50 @@ ul,li{
 .order_list{
     float: left;
     width: 25%;
-    /* height: 100%; */
-    padding: 10px 15px;
+    padding: 10px 0px 10px 15px;
+    height: 100%;
 }
+/* 우측 주문내역 - 섹션 */
+.order_list .section2{
+    height: 100%;
+}
+/* 우측 주문내역 - 상단 큰 제목 */
 .order_list h2{
     font-size: 23px;
     color: #ff6347;
     margin-bottom: 15px;
 }
+/* 우측 주문내역 - 음료 목록 */
+.order_list .orderbox{
+    height: calc(100% - 102px);
+    overflow-y: auto; /* 세로 스크롤 허용 */
+    overflow-x: hidden; /* 가로 스크롤 차단 */
+    padding-right: 10px;
+}
+/* 우측 주문내역 - 스크롤바 스타일 */
+.orderbox::-webkit-scrollbar {
+  width: 5px;
+}
+.orderbox::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  border-radius: 3px;
+}
+
+/* 우측 주문내역 - 각 음료별 최상위 부모 */
 .order_list .orderbox .order_wrap {
     border-bottom: 1px solid #c3c3c3;
     padding: 10px 0px;
 }
+/* 우측 주문내역 - 각 음료별 이름/가격 */
 .order_list .orderbox .order_wrap .orderinfo{
     font-size: 15px;
+    letter-spacing: -0.2px;
 }
+/* 우측 주문내역 - 각 음료별 목록에 있는 모든 버튼 */
 .order_list .orderbox .order_wrap .btnwrap button{
     cursor: pointer;
 }
+/* 우측 주문내역 - 각 음료별 -,+ 버튼 */
 .order_list .orderbox .order_wrap .btnwrap .calc{
     width: 27px;
     font-size: 18px;
@@ -133,6 +166,7 @@ ul,li{
     background-color: #ffffff;
     padding-bottom: 1px;
 }
+/* 우측 주문내역 - 각 음료별 -,+ 취소버튼 */
 .order_list .orderbox .order_wrap .btnwrap .cancel{
     line-height: 22px;
     border: 0;
@@ -140,10 +174,9 @@ ul,li{
     color: #fff;
     background-color: #ff3f3f;
     padding: 0px 7px;
+    margin-left: 55px;
+    margin-top: 7px;
 }
-
-
-
 
 /* 하단 총 주문금액 */
 .order_result{
@@ -153,4 +186,28 @@ ul,li{
     right: 0;
     clear: both;
     background-color: #181818;
+    color: #fff;
+    line-height: 60px;
+    padding: 0 30px;
+    text-align: right;
+}
+/* 하단 총 주문금액 액수표시 */
+.order_result h2{
+    display: inline-block;
+    color: #fff;
+}
+/* 하단 총 주문금액 중간라인 */
+.order_result .line{
+    padding: 0 15px;
+}
+/* 하단 총 주문금액 현금결제 */
+.order_result .btn{
+    border: 0;
+    padding: 5px 20px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 24px;
+    background-color: #ff6347;
+    cursor: pointer;
 }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 기초문제</title>
+</head>
+<body>
+    <!-- 태그작성 : 1 ~ 4번 문제 -->
+    <p id="text">안녕하세요</p>
+
+    
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+
+    <h4>첫번째 문장</h4>
+    <h4>두번째 문장</h4>
+
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    <p class="p2">one</p>
+    <p class="p2">two</p>
+
+
+    <script>
+        // 1번문제
+        let text01 = document.getElementById('text');
+        text01.textContent = "DOM 실습 중급";
+        console.log(text01.textContent);
+
+        // 2번문제
+        let box = document.getElementsByClassName('box'); 
+        //box[1].style.color="red"; // ClassName은 여러개에 지정을 하는것이므로, 적용할 배열을 지정해줘야됨
+        
+        //배열생성 Array.from() -> 1차원
+        //box를 배열로 생성
+        //forEach((value(값),index(값위치),array(전체배열) => {실행문})
+        Array.from(box).forEach((item, index)=>{
+            item.style.backgroundColor = 'yellow';
+            item.style.width = "50px";
+            item.style.height = "50px";
+        })
+        
+        //querySelector() => 한개만 선택(배열 불가능) 이걸쓰면, 밑에 array.from이나 for문으로 배열을 만들어서 해줘야됨.
+        //querySelectorAll() =>  모두 선택(배열) 이걸쓰면, 자동으로 배열이 생성됨. 근데 [0].[1]이런식으로 배열을 지정해주지않고, 태그 전체를 지정하면 아무것도 적용안됨
+        let box2 = document.querySelectorAll('.box');
+        //box2[0].style.color = 'yellow';
+        
+        // for(let i=0; i<box2.length; i++){
+        //     box2[i].style.color = 'yellow';
+        // }
+
+        // 3번문제
+        let textColor = document.getElementsByTagName('h4');
+        Array.from(textColor).forEach((item)=>{
+            item.style.color = 'blue';
+        })        
+
+        // 4번문제
+        let liText = document.querySelectorAll('li')[0];
+        liText.textContent = '포도';
+
+        // <p class="p2">one</p>
+        // <p class="p2">two</p>
+        // getElementsByTagName => 배열과 유사함
+        let p10 = document.getElementsByTagName('p');
+        let arr10 = Array.from(p10);
+        
+        console.log('p10'+p10);
+
+        arr10.forEach(item =>{
+            item.style.color='red';
+        })
+        //p10[object HTMLCollection]
+        //forEach()문은 HTMLCollection을 가지고 있지 않음
+        //Array.from()이용하여 생성가능
+
+
+        //for문 index로 루프돌림 허용
+        for(let i=0;i<p10.length; i++){
+            p10[i].style.color='blue';
+        }
+
+        let p11 = document.getElementsByClassName('p2');
+        console.log('p11'+p11);
+        //for문 인덱스로 접근하고, length 속성을 가지기 때문에 접근 가능
+        for(let i=0;i<p11.length;i++){
+            p11[i].style.color="green"
+            p11[i].style.fontSize="30px"
+        }
+ 
+        //querySelector() => p12[object NodeList]
+        //자바스크립트 es6버전 이후부터 forEach()허용함
+        let p12 = document.querySelectorAll('.p2')
+        console.log('p12'+p12);
+        p12.forEach((item,i)=>{
+            item.style.color='red';
+        })
+        // for(let i=0;i<p12.length;i++){
+        //     p12[i].style.color = 'red';
+        // }
+
+        //선택자가 이름이 존재하지 않는 경우 부모자식을 태그명을 정확허게 입력
+        let firstLi = document.querySelector('ul>li');
+
+        firstLi.textContent = '포도';
+    </script>
+    
+</body>
+</html>

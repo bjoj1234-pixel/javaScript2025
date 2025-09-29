@@ -48,25 +48,51 @@
             {id:11, name:'딥카페라테', type: 'ICE', price: 3700,quantity:1 },
         ];
 
+        // 총 주문금액 계산 function
+        function calc(){
+            // 총 주문금액 초기화
+            let calc = 0;
+            // 총 주문금액 text 반영할 위치
+            let pay = document.querySelector('.pay');
+
+            // 음료 메뉴 배열 수만큼 반복
+            for(let i=0;i<menus.length;i++){
+                //우측 주문내역 HTML내에 생성된 음료별 고유 ID체크
+                let idChk = document.getElementById(`oderID${i}`);
+
+                //음료ID가 HTML내에 존재한다면
+                //음료ID 뒤에 붙는 숫자 = menus[인덱스숫자]
+                if(idChk){
+                    //해당 음료의 주문수 * 가격을 저장
+                    calc += menus[i].price * menus[i].quantity;
+                }               
+            }        
+            //계산된 금액을 html 반영
+            pay.innerHTML = `${calc.toLocaleString('ko-kr')}원`;
+        }
+
+        // 음료 목록 생성 function
         function menubox(){
+            //음료 목록 표시할 위치(menubox)
             let menubox = document.querySelector('.menubox');
+            //음료 목록 생성할 ul
             let result = `<ul>`;
-            
-            
+
+            //음료 메뉴 배열 수만큼 반복
             for(let i=0; i < menus.length; i++){
-
-                result += `<li onclick='rightMove(${i})'>`;
-
+                //음료 목록 개별 li 생성
+                result += `<li onclick='rightMove(${i})'>`; //음료 클릭시 우측 주문내역으로 이동 function
+                //메뉴 타입에 HOT이 들어가 있으면
                 if(menus[i].type == 'HOT'){
                     result += `
                         <span class='coffee_temp' style='background-color:#ff3f3f'>${menus[i].type}</span>
-                        <div class='coffee_img' style='background-image:url(img/hot.png)'></div>`;                    
-                }else{
+                        <div class='coffee_img' style='background-image:url(img/hot.png)'></div>`;// HOT글씨 빨간색 & hot.png 띄움
+                }else{ //메뉴 타입에 ICE가 들어가 있으면
                     result += `
                         <span class='coffee_temp' style='background-color:#5295ff'>${menus[i].type}</span>
-                        <div class='coffee_img' style='background-image:url(img/ice.png)'></div>`;
+                        <div class='coffee_img' style='background-image:url(img/ice.png)'></div>`;// ICE글씨 파란색 & ice.png 띄움
                 }
-
+                //음료 이름 & 금액표시
                 result += `
                         <p class='coffee_tit'>${menus[i].name}</p>
                         <p class='coffee_price'>${(menus[i].price).toLocaleString('ko-kr')}원</p>                  
@@ -74,33 +100,108 @@
             }
 
             result += `</ul>`;
-
+            //위 HTML 적용하여 음료목록 표시
             menubox.innerHTML = result;
         }
 
-        menubox();
+        menubox(); // 음료 목록 생성 function 호출
 
+        //우측 주문내역 HTML 저장할 변수선언
         let result2 = ``;
 
+        //우측 주문내역 이동 function
         function rightMove(indexNum){
+            //우측 주문내역 표시할 위치(orderbox)
             let orderbox = document.querySelector('.orderbox');
-            result2 += `<div class='order_wrap'>
+
+            //주문내역 음료 개별 HTML 생성 (menus에서 name,type,price,quantity 불러와 적용)
+            //각 음료 개별 HTML마다 부모에 'oderID + (인덱스번호)'로 고유ID 부여 (중복판단을 위해)
+            result2 = `<div class='order_wrap' id='oderID${indexNum}'>
                 <p class='orderinfo'>${menus[indexNum].name}(${menus[indexNum].type}), ${(menus[indexNum].price).toLocaleString('ko-kr')}원</p>
                 <div class='btnwrap'>
                     <button type='button' onclick='minus(${indexNum})' class='calc'>-</button>
-                    <span style='menu_quan'>${menus[indexNum].quantity}</span>
+                    <span class='menu_quan'>${menus[indexNum].quantity}</span>
                     <button type='button' onclick='plus(${indexNum})' class='calc'>+</button>
                     <button type='button' onclick='cancel(${indexNum})' class='cancel'>선택취소</button>
                 </div>
             </div>`;
 
-            orderbox.innerHTML = result2;         
-        }
+            //(중복판단을 위한) 우측 주문내역에 생성된 음료의 ID 'oderID + (인덱스번호)' 변수지정
+            let idChk = document.getElementById(`oderID${indexNum}`);            
+            
+            //ID가 HTML내에 존재한다면(중복이라면)
+            if(idChk){
+                
+                //클릭했을때 해당 음료의 수량이 9개 미만이라면
+                if(menus[indexNum].quantity < 9){
+                    //수량을 증가하라
+                    menus[indexNum].quantity++;
+                }else{ //클릭했을때 해당 음료의 수량이 9개 이상이라면
+                    alert("최대 9개까지 주문가능합니다.");
+                }
 
+                //해당 음료에 변경된 수량 저장할 위치 
+                let idChkNum = idChk.querySelector('.menu_quan');
+
+                //해당 음료에 변경된 수량 text 반영
+                idChkNum.innerText = menus[indexNum].quantity;
+            }else{
+            //ID가 HTML내에 없다면(중복이 아니라면)
+                orderbox.innerHTML += result2; //result2에 있는 HTML을 생성시켜서 목록에 반영
+            }
+            // 총 주문금액 계산 function 호출    
+            calc();
+        }
+        
+        // 마이너스 버튼 클릭시
         function minus(indexNum){
+           //해당 음료 ID 'oderID + (인덱스번호)' 변수지정 
+            let idChk = document.getElementById(`oderID${indexNum}`);
 
-            menus[indexNum].quantity--;
+            //해당 음료 갯수가 1개 초과이면
+            if(menus[indexNum].quantity > 1){
+                menus[indexNum].quantity--; // 클릭시 수량 1개씩 감소
+            }else{ //해당 음료 갯수가 1개 이하이면
+                alert("최소 1개이상 주문가능합니다.");
+            }
+            //해당 음료에 변경된 수량 저장할 위치 
+            let idChkNum = idChk.querySelector('.menu_quan');
+            //해당 음료에 변경된 수량 text 반영
+            idChkNum.innerText = menus[indexNum].quantity;
+            // 총 주문금액 계산 function 호출
+            calc();
         }
+
+        // 플러스 버튼 클릭시
+        function plus(indexNum){
+            //해당 음료 ID 'oderID + (인덱스번호)' 변수지정
+            let idChk = document.getElementById(`oderID${indexNum}`); 
+
+            //해당 음료 갯수가 9개 미만이면
+            if(menus[indexNum].quantity < 9){
+                menus[indexNum].quantity++; //클릭시 수량 1개씩 증가
+            }else{ //해당 음료 갯수가 9개 이상이면
+                alert("최대 9개까지 주문가능합니다.");
+            }
+            //해당 음료에 변경된 수량 저장할 위치
+            let idChkNum = idChk.querySelector('.menu_quan');
+            //해당 음료에 변경된 수량 text 반영
+            idChkNum.innerText = menus[indexNum].quantity;
+            // 총 주문금액 계산 function 호출
+            calc();
+        }
+
+        // 취소 버튼 클릭시
+        function cancel(indexNum){            
+            //해당 음료 ID 'oderID + (인덱스번호)' 변수지정
+            let idChk = document.getElementById(`oderID${indexNum}`);
+            //해당 음료 HTML 제거
+            idChk.outerHTML = '';
+            //취소 후 다시 추가하는 경우를 위해 갯수 초기화
+            menus[indexNum].quantity = 1;
+            // 총 주문금액 계산 function 호출
+            calc();
+        }      
     </script>
 </body>
 </html>
