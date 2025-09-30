@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제</title>
+</head>
+<body>
+    <!-- 7번 -->
+    <button type="button" id="toggleBtn">이미지 토글</button>
+    <img id="myImg" src="img/pic-2.jpg" style="display: block;" />
+
+    <!-- 8번 -->
+    <p id="text">색상이 바뀝니다</p>
+    <button id="colorBtn">색상 변경</button>
+
+    <script>
+        // 7번
+        let toggleBtn = document.getElementById('toggleBtn');
+        let myImg = document.getElementById('myImg');
+
+        toggleBtn.addEventListener('click',()=>{
+            if(myImg.style.display =='block'){
+                myImg.style.display = 'none';
+            }else{
+                myImg.style.display = 'block';
+            }
+        })
+
+        // 8번
+        const colors = ['red', 'blue', 'green'];
+        let text = document.getElementById('text');
+        let colorBtn = document.getElementById('colorBtn');
+        let num=0;
+
+        colorBtn.addEventListener('click',()=>{                        
+            text.style.color = colors[num];
+            
+            if(num<2){
+                num++;
+            }else{
+                num=0;
+            }
+        })
+       
+    </script>    
+</body>
+</html>

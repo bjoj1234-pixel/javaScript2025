@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제</title>
+</head>
+<body>
+    <!-- 9번 -->
+    <h4>9번</h4>
+    <input id="num1" type="number"> +
+    <input id="num2" type="number">
+    <button id="sumBtn">계산</button>
+    <div id="result"></div>
+
+    <!-- 10번 -->
+    <h4>10번</h4>
+    <input id="inputBox" type="text" placeholder="입력해보세요">
+
+    <!-- 문제2 -->
+    <div id="container">
+       <img id="img" src="img/girl.png" >
+    </div>
+
+    <script>
+        // 9번
+        let sumBtn = document.getElementById('sumBtn');
+
+        sumBtn.addEventListener('click',()=>{
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);    
+            let result = document.getElementById('result');
+            
+            result.textContent = `결과: ${num1 + num2}`;
+        })
+
+        // 10번
+        // keyup : 키보드로 값을 입력할때마다
+        inputBox.addEventListener('keyup',()=>{
+            let inputBox = document.getElementById('inputBox').value;
+            console.log(`현재 입력: ${inputBox}`);
+        })
+
+        // 문제2
+        let container = document.getElementById('container');
+        let img = document.getElementById('img');
+
+        img.addEventListener('mouseover',()=>{
+            img.src = 'img/boy.png';
+        })
+        img.addEventListener('mouseout',()=>{
+            img.src = 'img/girl.png';
+        })
+
+        // 문제3
+
+       
+
+
+       
+    </script>    
+</body>
+</html>

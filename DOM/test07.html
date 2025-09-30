@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+    <style>
+        .active{
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 13번 ~ 16번까지 -->
+     <!-- 13번 -->
+    <h4>13. 버튼 클릭 시 classList.toggle("active") 기능 구현하세요.</h4>
+    <div id="box01" class="active">13번 토글테스트</div>
+    <button type="button" onclick="toggleTest()">토글테스트</button>
+
+    <!-- 14번 -->
+     <h4> 14. JS에서 배경색을 "red"로 변경하세요.</h4>
+    <div id="box02" style="width: 100px; height: 100px;">14번 배경색 테스트</div>
+    <!-- <button type="button" onclick="redBg()">14번 배경색 테스트</button> -->
+
+    <br>
+
+    <!-- 15번 --> 
+     <h4> 15. JS로 링크 주소를 "https://google.com"으로 변경하세요.</h4>
+    <a href="https://naver.com" id="link">15번 링크변경 테스트</a>
+
+    <br>
+
+    <!-- 16번 -->
+     <h4> 16. JS로 src 속성 값을 콘솔에 출력하세요.</h4>
+    <img id="logo" src="logo.png">
+
+    <script>
+        //13번
+        function toggleTest(){
+            let box01 = document.getElementById('box01');
+            box01.classList.toggle('active');
+        }
+        //14번
+        function redBg(){
+            let box02 = document.getElementById('box02');
+            box02.style.backgroundColor = 'red';
+        }
+        redBg();
+
+        //15번
+        function linkChange(){
+            let link = document.getElementById('link');
+            //link.setAttribute('href','https://google.com'); 첫번째 방법
+            link.href = 'https://google.com'; //두번째 방법
+        }
+        linkChange();
+
+        //16번
+        function srcChange(){
+            let logo = document.getElementById('logo');
+            let logoSrc = logo.getAttribute('src');
+            console.log(logoSrc);
+        }
+        srcChange();
+        
+    </script>
+   
+    
+</body>
+</html>

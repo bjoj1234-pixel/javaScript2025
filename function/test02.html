@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습문제</title>
+</head>
+<body>
+    <!-- 3번 -->
+    <button type="button" id="btn01">클릭갯수</button>
+
+    <!-- 6번 -->
+     <button type="button" id="btn02">현재시간</button>
+     
+
+
+    <!-- 2번 ~ 6번 -->
+     <script>
+        // 2번: 할인율
+        let getDiscountPrice = (price, rate) => {
+            console.log(`${price}원의 할인율은 ${rate}%이며, 최종 결제금액은 ${price-(price*(rate*0.01))}원 입니다.`);
+        }               
+        getDiscountPrice(10000,10);
+
+        // 3번: 버튼 클릭갯수
+        let btn01 = document.getElementById('btn01');
+        let num = 0;
+        
+        btn01.addEventListener('click',()=>{
+            num++;
+            console.log(`버튼 클릭수 : ${num}번`);
+        })
+
+        //4번: 장바구니 가격 합계
+        
+        let getTotal = (price) => {
+            let total=0;
+            for(let i=0; i<price.length; i++){
+                total += price[i];
+            }
+            return console.log(`장바구니 가격 목록의 총 합계는 ${total}입니다.`);            
+        }
+        getTotal([1000,2000,3000]);
+
+        //5번: 비밀번호 8자 이상 검사
+        // let validatePassword = (password) =>{
+        //     if(password.length >= 8){
+        //         return true //논리값은 return을 반드시 넣어줘야되고, 세미콜론(;)찍으면 안됨
+        //     }else{
+        //         return false //논리값
+        //     }
+        // }
+        let validatePassword2 = (password) => password.length >= 8 //조건을 이렇게 한줄로 넣고 중괄호를 없애도됨
+            console.log(validatePassword2('1234'));//false출력
+            console.log(validatePassword2('12345678'));//true출력
+        
+        //validatePassword('12345678'); // 자바스크립트는 문자가 X 문자열이기때문에, 곧 String=>오브젝트 배열
+        //validatePassword2('12345678');
+
+        //6번: 버튼 누르면 현재시간
+        let btn02 = document.getElementById('btn02');
+
+        btn02.addEventListener('click',()=>{
+            let now = new Date();            
+            console.log(`현재 날짜+시간: ${now.toLocaleString()}`);//날짜+시간
+            console.log(`현재 날짜: ${now.toLocaleDateString()}`);//날짜만
+            console.log(`현재 시간: ${now.toLocaleTimeString()}`);//시간만
+        })
+     </script>    
+</body>
+</html>
