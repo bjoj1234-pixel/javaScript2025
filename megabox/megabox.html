@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megabox</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        section{
+            display: flex;
+            justify-content: center;            
+        }
+        /* 섹션 왼쪽부분 */
+        section .section_left{
+            padding: 50px 0;
+            width: 770px;
+            border: 1px solid #eee;
+        }
+        section .section_left .reserve h5{
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+        /* 좌석 테이블 */
+        section .section_left .reserve .seat table{
+            border-spacing: 3px;
+            border-collapse: separate;
+            margin: 0 auto;
+        }
+        section .section_left .reserve .seat table td{
+            border: 1px solid #02bfd3;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            padding: 5px;
+            background-color: #e5b200;
+            color: #fff;
+            cursor: pointer;            
+        }
+        /* 좌석 테이블 - 행시작(알파벳 칸) */
+        section .section_left .reserve .seat table tr>td:first-child{
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #c5c5c5;
+            cursor:default;
+        }
+        /* 선택 좌석 클래스 */
+        section .section_left .reserve .seat table td.selectedSeat{
+            background-color: #503396;
+        }
+        /* 선택불가 좌석 클래스 */
+        section .section_left .reserve .seat table td.unavailSeats{
+            background-color: #ccc;
+            cursor: default;
+        }
+
+        /* 섹션 오른쪽 부분 */
+        section .section_right{
+            border: 1px solid #000;
+            margin-left: 15px;
+            width: 310px;
+        }
+            
+
+    </style>
+</head>
+<body>
+    <section>
+        <!-- 섹션왼쪽 -->
+        <div class="section_left">
+            <input type="number" style="width: 100px;" id="adult">
+            <input type="number" style="width: 100px;" id="teen">
+            <input type="number" style="width: 100px;" id="senior">
+            <input type="number" style="width: 100px;" id="discount">
+            <!-- 좌석배열부분 묶음 -->
+            <div class="reserve">
+                <h5>SCREEN</h5>
+                <!-- 좌석 테이블 위치 -->
+                <div class="seat"></div>
+            </div>
+        </div>
+        <!-- 섹션오른쪽 -->
+        <div class="section_right">
+
+        </div>
+    </section>
+    <script>
+        //좌석배열 생성
+        let seatArr = Array.from(Array(10),() => new Array(11));
+        //알파벳 배열생성
+        let alpa = ['A','B','C','D','E','F','G','H','I','J'];
+        //테이블 결과값
+        let result = `<table>`;
+
+        //좌석 배열 테이블 생성
+        for(let i=0;i<seatArr.length;i++){//행
+            
+            result += `<tr>`;
+            
+            for(let j=0;j<seatArr[i].length;j++){//열
+
+                result += `<td>`;
+
+                if(j==0){// 첫 행 시작마다 알파벳이 바뀌게
+                    seatArr[i][j] = alpa[i];
+                }else{// 나머지 행에는 인덱스 순서대로 저장
+                    seatArr[i][j] = j;
+                }                    
+
+                result += `${seatArr[i][j]}</td>`;
+            }
+            
+            result += `</tr>`;
+        }
+        result += `</table>`;
+
+        //좌석 테이블 출력
+        let seat = document.querySelector('.seat');
+        seat.innerHTML = result;
+
+        
+
+        // 유형별 ID 선택자
+        let adult = document.getElementById('adult');
+        let teen = document.getElementById('teen');
+        let senior = document.getElementById('senior');
+        let discount = document.getElementById('discount');
+   
+        //총 인원수 합산
+        let headCount = 0;
+
+        //입력값(인원수) 초기화
+        let adultNum = 0;
+        let teenNum = 0;
+        let seniorNum = 0;
+        let discountNum = 0;
+
+        //좌석 테이블의 tr(행) 선택자
+        let seatTr = document.querySelectorAll('.seat table tr');
+
+        
+        //console.log(selectedSeat.length);
+
+        for(let i=0;i<seatArr.length;i++){//행 
+            for(let j=0;j<seatArr[i].length;j++){//열
+
+                // 테이블 첫번째 열(알파벳)에만
+                // 선택불가(unavailSeats)클래스 주기
+                if(j == 0){
+                    seatTr[i].children[j].classList.add('unavailSeats');
+                }
+
+                //좌석 클릭시
+                seatTr[i].children[j].addEventListener('click',()=>{
+
+                    //입력값(인원수) number로 저장
+                    adultNum = Number(adult.value);
+                    teenNum = Number(teen.value);
+                    seniorNum = Number(senior.value);
+                    discountNum = Number(discount.value);
+       
+                    //총 인원수 합산
+                    headCount = adultNum + teenNum + seniorNum + discountNum;
+
+                    //선택된 좌석 클래스
+                    let selectedSeat = document.querySelectorAll('.selectedSeat');
+                    
+                    //인원수 합산이 0명일때
+                    if(headCount == 0){
+                        alert('관람하실 인원을 먼저 선택해주세요.');
+                    }else{
+                        //이미 선택된 좌석이 있을때
+                        if(seatTr[i].children[j].classList == 'selectedSeat'){
+                            // 선택된 좌석(selectedSeat) 클래스 제거
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        //선택 불가(unavailSeats)좌석이 있을때
+                        }else if(seatTr[i].children[j].classList == 'unavailSeats'){
+                            return //아무것도 없이 종료
+                        }else{//그외 (빈 좌석들)에는
+                            //선택된 좌석(selectedSeat) 클래스 추가
+                            seatTr[i].children[j].classList.add('selectedSeat');
+                        }
+                    }
+
+                    if(headCount <= selectedSeat.length){
+                        alert('좌석 선택이 완료되었습니다.');
+                        seatTr[i].children[j].classList.remove('selectedSeat');
+                    }
+                })
+            }
+        }
+      
+
+        //인원수 입력 input 선택자
+        let inputCount = document.querySelectorAll('.section_left input[type="number"]');
+
+        //인원수 입력 input 갯수만큼 루프
+        for(let i=0; i<inputCount.length; i++){
+
+            //input에 인원수 number가 입력될때마다
+            inputCount[i].addEventListener('input',function(){   
+                
+                //입력값(인원수) number로 저장
+                adultNum = Number(adult.value);
+                teenNum = Number(teen.value);
+                seniorNum = Number(senior.value);
+                discountNum = Number(discount.value);
+        
+                //총 인원수 합산
+                headCount = adultNum + teenNum + seniorNum + discountNum;
+
+
+                //배열 루프를 돌려서
+                for(let j=0;j<seatArr.length;j++){//행
+                    for(let k=0; k<seatArr[j].length; k++){//열
+                        //만약 한명만 입력했다면
+                        if(headCount == 1){      
+                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
+                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
+                        }else if(headCount > 8){ //인원 합계 8명 넘어가면
+                            alert('인원선택은 총 8명까지 가능합니다.');// 모달창
+                            //증가시킨 인원수 다시 감소
+                            return this.value-- 
+                        }else{
+                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
+                            seatTr[j].children[k].classList.remove('unavailSeats');
+                            // 그러나 테이블 첫번째 열(알파벳)에만
+                            // 선택불가(unavailSeats)클래스 다시 주기
+                            seatTr[i].children[0].classList.add('unavailSeats');
+                        }
+                    }
+                }
+            })
+        }
+        
+
+    </script>
+</body>
+</html>

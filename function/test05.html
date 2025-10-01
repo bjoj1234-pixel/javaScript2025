@@ -7,6 +7,8 @@
     <style>
         #container{
           overflow: hidden;
+          width: 1200px;
+          margin: 0 auto;
         }
         #small-pic .small{
           width: 150px;
@@ -22,6 +24,12 @@
         }
         #desc{
           height: 630px;
+        }
+        #detail{
+          display: none;
+        }
+        #detail.active{
+          display: block;
         }
     </style>
 </head>
@@ -90,8 +98,13 @@
         
         
         for(let i=0; i<smallPic.length; i++){
-          smallPic[i].addEventListener('mouseover',()=>{      
-              bigimg.src = smallPic[i].src;
+          smallPic[i].addEventListener('mouseover', function (){  // 화살표 함수 오류시, 화살표를 지우고 function을 기입해야 해결됨.(이벤트 주체를 제대로 인식못할 경우 생기는 오류)
+              //bigimg.src = smallPic[i].src;
+              let newImg = this.src;
+              //this는 이벤트가 발생한 대상 요소를 가르킴.
+              //this.src는 이벤트가 발생한 이미지 태그가 가진 이미지의 주소를 꺼내는 것이다.
+              //.small src ="img/coffee-pink.jpg"를 의미          
+              bigimg.setAttribute('src',newImg);
           })
         }   
         
@@ -100,12 +113,17 @@
         //상품상세정보
         let detail = document.getElementById('detail');
 
+        // view.addEventListener('click',()=>{
+        //   if(detail.style.display=='none'){
+        //     detail.style.display = 'block';
+        //   }else{
+        //     detail.style.display = 'none';
+        //   }
+        // })
+
+        //토글방식
         view.addEventListener('click',()=>{
-          if(detail.style.display=='none'){
-            detail.style.display = 'block';
-          }else{
-            detail.style.display = 'none';
-          }
+          detail.classList.toggle('active');
         })
     </script>    
 </body>
