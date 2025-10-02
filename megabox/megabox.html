@@ -3,89 +3,645 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Megabox</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <style>
-        section{
-            display: flex;
-            justify-content: center;            
-        }
-        /* 섹션 왼쪽부분 */
-        section .section_left{
-            padding: 50px 0;
-            width: 770px;
-            border: 1px solid #eee;
-        }
-        section .section_left .reserve h5{
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 8px;
-            font-size: 20px;
-        }
-        /* 좌석 테이블 */
-        section .section_left .reserve .seat table{
-            border-spacing: 3px;
-            border-collapse: separate;
-            margin: 0 auto;
-        }
-        section .section_left .reserve .seat table td{
-            border: 1px solid #02bfd3;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            padding: 5px;
-            background-color: #e5b200;
-            color: #fff;
-            cursor: pointer;            
-        }
-        /* 좌석 테이블 - 행시작(알파벳 칸) */
-        section .section_left .reserve .seat table tr>td:first-child{
-            background-color: #fff;
-            color: #000;
-            border: 1px solid #c5c5c5;
-            cursor:default;
-        }
-        /* 선택 좌석 클래스 */
-        section .section_left .reserve .seat table td.selectedSeat{
-            background-color: #503396;
-        }
-        /* 선택불가 좌석 클래스 */
-        section .section_left .reserve .seat table td.unavailSeats{
-            background-color: #ccc;
-            cursor: default;
-        }
-
-        /* 섹션 오른쪽 부분 */
-        section .section_right{
-            border: 1px solid #000;
-            margin-left: 15px;
-            width: 310px;
-        }
-            
-
-    </style>
+    <title>MegaBox</title>
+    <link rel="stylesheet" href="megabox.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <section>
-        <!-- 섹션왼쪽 -->
-        <div class="section_left">
-            <input type="number" style="width: 100px;" id="adult">
-            <input type="number" style="width: 100px;" id="teen">
-            <input type="number" style="width: 100px;" id="senior">
-            <input type="number" style="width: 100px;" id="discount">
-            <!-- 좌석배열부분 묶음 -->
-            <div class="reserve">
-                <h5>SCREEN</h5>
-                <!-- 좌석 테이블 위치 -->
-                <div class="seat"></div>
+    <!-- 전체를 묶는 container -->
+    <div class="megabox_container">
+        <!-- header -->
+        <header>
+            <div class="header_TC">
+                <!-- header_top -->
+                <div class="header_top">
+                    <!-- header_top 좌측 -->
+                    <div class="memberShip">
+                        <a href="#none" title="VIP LOUNGE">VIP LOUNGE</a>
+                        <a href="#none" title="멤버십">멤버십</a>
+                        <a href="#none" title="고객센터">고객센터</a>
+                    </div>
+                    <!-- header_top 우측 -->
+                    <div class="logout">
+                        <a href="#none" title="로그아웃">로그아웃</a>
+                        <a href="#none" >빠른예매</a>
+                    </div>
+                </div>
+                <!-- header_center -->
+                <div class="header_center">
+                    <!-- header_center 목록, 검색 토글 -->
+                    <div class="search">
+                        <button type="button" title="사이트맵" id="list_btn">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <button type="button" title="검색" id="search_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <!-- header_center 메인로고 기준 좌측 메뉴 -->
+                    <div class="menu1">
+                        <a href="#none" title="영화">영화</a>
+                        <a href="#none" title="예매">예매</a>
+                        <a href="#none" title="극장">극장</a>
+                    </div>
+                    <!-- header_center 메인로고 -->
+                    <a href="#none" class="main_logo" title="MEGABOX 메인으로 가기">
+                        <img src="img/메인로고.png">
+                    </a>
+                    <!-- header_center 메인로고 기준 우측 메뉴 -->
+                    <div class="menu2">
+                        <a href="#none" title="이벤트">이벤트</a>
+                        <a href="#none" title="스토어">스토어</a>
+                        <a href="#none" title="혜택">혜택</a>
+                    </div>
+                    <!-- header_center 우측 시간표 및 마이페이지 -->
+                    <div class="myPage">
+                        <a href="#none" title="상영시간표">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </a>
+                        <a href="#none" title="나의 메가박스">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <hr/> -->
+            <!-- header_bottom -->
+            <div class="header_bottom">
+                <i class="fa-regular fa-house home"></i>
+                <span>></span>
+                <a href="#none" class="bottom1" title="예매 페이지로 이동">예매</a>
+                <span>></span>
+                <a href="#none" class="bottom1" title="빠른예매 페이지로 이동">빠른예매</a>
+                <div class="list_toggle">
+                    <h1>SITEMAP</h1>
+                    <div class="list01">
+                        <ul>
+                            <li class="list_title">영화</li>
+                            <a href="#none">
+                                <li>전체영화</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">예매</li>
+                            <a href="#none">
+                                <li>빠른예매</li>
+                            </a>
+                            <a href="#none">
+                                <li>상영시간표</li>
+                            </a>
+                            <a href="#none">
+                                <li>더 부티크 프라이빗 예매</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">극장</li>
+                            <a href="#none">
+                                <li>전체극장</li>
+                            </a>
+                            <a href="#none">
+                                <li>특별관</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">이벤트</li>
+                            <a href="#none">
+                                <li>진행중 이벤트</li>
+                            </a>
+                            <a href="#none">
+                                <li>지난 이벤트</li>
+                            </a>
+                            <a href="#none">
+                                <li>당첨자 발표</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">스토어</li>
+                            <a href="#none">
+                                <li>새로운 상품</li>
+                            </a>
+                            <a href="#none">
+                                <li>메가티켓</li>
+                            </a>
+                            <a href="#none">
+                                <li>팝콘/음료/굿즈</li>
+                            </a>
+                            <a href="#none">
+                                <li>포인트몰</li>
+                            </a>
+                        </ul>
+                        <ul class="long">
+                            <li class="list_title">나의 메가박스</li>
+                            <a href="#none">
+                                <li>나의 메가박스 홈</li>
+                            </a>
+                            <a href="#none">
+                                <li>예매/구매내역</li>
+                            </a>
+                            <a href="#none">
+                                <li>영화관람권</li>
+                            </a>
+                            <a href="#none">
+                                <li>스토어교환권</li>
+                            </a>
+                            <a href="#none">
+                                <li>할인/제휴쿠폰</li>
+                            </a>
+                            <a href="#none">
+                                <li>멤버십포인트</li>
+                            </a>
+                            <a href="#none">
+                                <li>나의 무비스토리</li>
+                            </a>
+                            <a href="#none">
+                                <li>나의 이벤트 응모내역</li>
+                            </a>
+                            <a href="#none">
+                                <li>나의 문의내역</li>
+                            </a>
+                            <a href="#none">
+                                <li>자주쓰는 할인카드</li>
+                            </a>
+                            <a href="#none">
+                                <li>회원정보</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">혜택</li>
+                            <a href="#none">
+                                <li>멤버십 안내</li>
+                            </a>
+                            <a href="#none">
+                                <li>VIP LOUNGE</li>
+                            </a>
+                            <a href="#none">
+                                <li>제휴/할인</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">고객센터</li>
+                            <a href="#none">
+                                <li>고객센터 홈</li>
+                            </a>
+                            <a href="#none">
+                                <li>자주묻는질문</li>
+                            </a>
+                            <a href="#none">
+                                <li>공지사항</li>
+                            </a>
+                            <a href="#none">
+                                <li>1:1문의</li>
+                            </a>
+                            <a href="#none">
+                                <li>단체/대관문의</li>
+                            </a>
+                            <a href="#none">
+                                <li>분실물문의</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">회사소개</li>
+                            <a href="#none">
+                                <li>메가박스소개</li>
+                            </a>
+                            <a href="#none">
+                                <li>사회공헌</li>
+                            </a>
+                            <a href="#none">
+                                <li>홍보자료</li>
+                            </a>
+                            <a href="#none">
+                                <li>제휴/부대사업문의</li>
+                            </a>
+                            <a href="#none">
+                                <li>온라인제보센터</li>
+                            </a>
+                            <a href="#none">
+                                <li>IR자료</li>
+                            </a>
+                            <a href="#none">
+                                <li>인재채용</li>
+                            </a>
+                            <a href="#none">
+                                <li>윤리경영</li>
+                            </a>
+                        </ul>
+                        <ul>
+                            <li class="list_title">이용정책</li>
+                            <a href="#none">
+                                <li>이용약관</li>
+                            </a>
+                            <a href="#none">
+                                <li>위치기반서비스 이용약관</li>
+                            </a>    
+                            <a href="#none">
+                                <li>개인정보처리방침</li>
+                            </a>
+                            <a href="#none">
+                                <li>스크린수배정에관한기준</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search_toggle">
+                    <div class="toggle_top">
+                        <button type="button" class="ranking_order">예매율순</button>
+                        <button type="button" class="ranking_order">메가박스관객순</button>
+                    </div>
+                    <div class="img_search">
+                        <div class="img_ranking">
+                            <div class="movieImg">
+                                <img src="img/어쩔수가 없다 1.jpg" id="main_img">
+                                <img src="img/어쩔수가 없다 1.jpg" class="img_sub">
+                                <img src="img/체인소맨2.jpg" class="img_sub">
+                                <img src="img/보스3.jpg" class="img_sub">
+                                <img src="img/워킹맨4.jpg" class="img_sub">
+                                <img src="img/귀칼-3.jpg" class="img_sub">
+                            </div>
+                            <div class="movie_ranking">
+                                <a href="#none" class="ranking" title="어쩔수가 없다 상세보기"><span class="movieNum">1</span>어쩔수가없다</a>
+                                <a href="#none" class="ranking" title="극장판 체인소 맨: 레제편 상세보기"><span class="movieNum">2</span>극장판 체인소 맨: 레제편</a>
+                                <a href="#none" class="ranking" title="보스 상세보기"><span class="movieNum">3</span>보스</a>
+                                <a href="#none" class="ranking" title="워킹맨 상세보기"><span class="movieNum">4</span>워킹맨</a>
+                                <a href="#none" class="ranking" title="극장판 귀멸의 칼날:무한성편 상세보기"><span class="movieNum">5</span>극장판 귀멸의 칼날:무한성편</a>
+                            </div>
+                        </div>
+                        <div class="img_ranking2">
+                            <div class="movieImg2">
+                                <img src="img/f1-1.jpg" id="main_img2">
+                                <img src="img/f1-1.jpg" class="img_sub2">
+                                <img src="img/좀비딸-2.jpg" class="img_sub2">
+                                <img src="img/귀칼-3.jpg" class="img_sub2">
+                                <img src="img/진격거-4.jpg" class="img_sub2">
+                                <img src="img/하얼빈-5.jpg" class="img_sub2">
+                            </div>
+                            <div class="movie_ranking2">
+                                <a href="#none" class="ranking2" title="F1 더 무비 상세보기"><span class="movieNum">1</span>F1 더 무비</a>
+                                <a href="#none" class="ranking2" title="좀비딸 상세보기"><span class="movieNum">2</span>좀비딸</a>
+                                <a href="#none" class="ranking2" title="극장판 귀멸의 칼날:무한성편 상세보기"><span class="movieNum">3</span>극장판 귀멸의 칼날:무한성편</a>
+                                <a href="#none" class="ranking2" title="진격의 거인 완결편 더 라스트 어택 상세보기"><span class="movieNum">4</span>진격의 거인 완결편 더 라스트 어택</a>
+                                <a href="#none" class="ranking2" title="하얼빈 상세보기"><span class="movieNum">5</span>하얼빈</a>
+                            </div>
+                        </div>
+                        <div class="inputSearch">
+                            <form action="#none" method="get">
+                                <input type="text" id="movieSearch" name="movieSearch" placeholder="영화를 검색하세요">
+                                <button type="button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <h1>빠른예매</h1>
+            <!-- <hr/> -->
+            <!-- 섹션wrap 시작 -->
+            <div class="section_wrap">
+                <!-- 섹션왼쪽 -->
+                <div class="section_left">
+                    <div class="viewCount">
+                        <span>관람인원선택</span>
+                        <button type="button" class="reset_btn">
+                            초기화
+                        </button>
+                    </div>
+                    <div class="headCount">
+                        <div class="adult">
+                            <span>성인</span>
+                            <button type="button" class="minus_btn" title="성인 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="성인 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="성인 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="teen">
+                            <span>청소년</span>
+                            <button type="button" class="minus_btn" title="청소년 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="청소년 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="청소년 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="senior">
+                            <span>경로</span>
+                            <button type="button" class="minus_btn" title="경로 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="경로 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="경로 좌석 선택 증가">+</button>
+                        </div>
+                        <div class="discount">
+                            <span>우대</span>
+                            <button type="button" class="minus_btn" title="우대 좌석 선택 감소">-</button>
+                            <button type="button" class="count_btn" title="우대 현재 좌석 선택 수">0</button>
+                            <button type="button" class="plus_btn" title="우대 좌석 선택 증가">+</button>
+                        </div>
+                    </div>
+                    <!-- 좌석배열부분 묶음 -->
+                    <div class="reserve">
+                        <h5>SCREEN</h5>
+                        <!-- 좌석 테이블 위치 -->
+                        <div class="seat"></div>
+                    </div>
+                </div>
+                <!-- 섹션오른쪽 -->
+                <div class="section_right">
+                    <div class="tit-area">
+                        <p class="tit">극장판 체인소 맨: 레제편</p>
+                        <p class="cate">2D(자막)</p>
+                    </div>
+                    <div class="info-area">
+                        <!-- 예약시간/날짜 등 정보 -->
+                        <div class="info-left">
+                            <p>강남</p>
+                            <p>르 리클라이너 3관</p>
+                            <p>2025.10.02(목)</p>
+                            <div class="other-time">
+                                <button type="button">10:50~12:43</button>
+                                <!-- <ul></ul> -->
+                            </div>
+                        </div>
+                        <!-- 포스터 -->
+                        <div class="info-right">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <!-- 좌석 -->
+                    <div class="seat-area">
+                        <div class="seat-left">
+                            <ul>
+                                <li>
+                                    <span>선택</span>
+                                </li>
+                                <li>
+                                    <span>선택불가</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="seat-right">
+                            <p>선택좌석</p>
+                            <!-- 선택한 좌석표시 -->
+                            <div class="seat-choice">
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                                <div class="seat-select"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 최종결제금액 -->
+                    <div class="pay-area">
+                        <p class="pay-type"></p>
+                        <div class="pay-calc">
+                            <span>최종결제금액</span>
+                            <span class="totalPrice"></span>
+                        </div>
+                    </div>
+                    <!-- 이전/다음버튼 -->
+                    <div class="btn-group">
+                        <a href="#">이전</a>
+                        <a href="#">다음</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 섹션wrap 끝 -->
+        </section>
+        <footer>
+            <div class="footer_top">
+                <div class="company_intro">
+                    <a href="#none">회사소개</a>
+                    <a href="#none">인재채용</a>
+                    <a href="#none">사회공헌</a>
+                    <a href="#none">제휴/광고/부대사업문의</a>
+                    <a href="#none">이용약관</a>
+                    <a href="#none"><strong>위치기반서비스 이용약관</strong></a>
+                    <a href="#none"><strong>개인정보처리방침</strong></a>
+                    <a href="#none">윤리경영</a>
+                </div>
+                <div class="theater">
+                    <a href="#none">극장찾기</a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <img src="">
+                <p>
+                서울특별시 강남구 테헤란로 87길 22 도심공항터미널 건물 408호 ARS 1544-0070 대표이메일 m.dreamcenter@partner.megabox.co.kr
+                대표자명 홍정인, 남용석 · 개인정보보호책임자 김수현 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 2025-서울강남-00722
+                COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                </p>
+                <a href="#none"></a>
+                <a href="#none"></a>
+                <a href="#none"></a>
+                <a href="#none"></a>
+            </div>
+        </footer>
+        <div class="modal">
+            <div class="modal_count8">
+                <div class="modal_header">
+                    <span>알림</span>
+                    <button type="button" class="modal_btn">x</button>
+                </div>
+                <div class="modal_center">
+                    <p>인원선택은 총 8명까지 가능합니다.</p>
+                    <button type="button" class="modal_btn">확인</button>  
+                </div>
             </div>
         </div>
-        <!-- 섹션오른쪽 -->
-        <div class="section_right">
-
+        <div class="modal2">
+            <div class="modal_senior">
+                <div class="modal_header2">
+                    <span>알림</span>
+                    <button type="button" class="modal_btn">x</button>
+                </div>
+                <div class="modal_center">
+                    <p>
+                    경로 : 만 65세 이상(신분증)
+                    <br/>
+                    <br/>
+                    경로요금은 만65세 이상 고객에게만 적용되며, 상영관 입장시 본인신분증을 제시해 주시기 바랍니다(*미지참시 입장 제한)
+                    <br/>
+                    <br/>
+                    *경로선택 시 추가 할인이 제한될 수 있습니다
+                    </p>
+                    <button type="button" class="modal_btn">확인</button>  
+                </div>
+            </div>
         </div>
-    </section>
+        <!-- 오버레이 -->
+        <div class="overlay"></div>
+    </div>
+
     <script>
+         // 목록 및 검색 토글을 위한 document
+        let list_btn = document.querySelector('#list_btn');
+        let search_btn = document.querySelector('#search_btn');
+        let list_toggle = document.querySelector('.list_toggle');
+        let search_toggle = document.querySelector('.search_toggle');
+
+        // 랭킹에 마우스 오버시 영화 이미지 변경을 위한 document 2세트
+        let main_img = document.querySelector('#main_img');
+        let img_sub = document.querySelectorAll('.img_sub');
+        let ranking = document.querySelectorAll('.ranking');
+
+        let main_img2 = document.querySelector('#main_img2');
+        let img_sub2 = document.querySelectorAll('.img_sub2');
+        let ranking2 = document.querySelectorAll('.ranking2');
+        
+        // 예매율순과 관객순을 서로 바꾸기 위한 document
+        let ranking_order = document.querySelectorAll('.ranking_order');
+        let img_ranking = document.querySelector('.img_ranking');
+        let img_ranking2 = document.querySelector('.img_ranking2');
+
+        // 목록 버튼 토글
+        list_btn.addEventListener('click',() =>{
+            list_toggle.classList.toggle('list');
+        })
+        // 검색 버튼 토글
+        search_btn.addEventListener('click',() =>{
+            search_toggle.classList.toggle('input_toggle');
+        })
+        // 영화 랭킹에 마우스오버시 포스터 변경
+        for(let i = 0; i < img_sub.length; i++){
+            ranking[i].addEventListener('mouseover',() => {
+                main_img.src = img_sub[i].src;
+            })
+        }
+        for(let i = 0; i < img_sub2.length; i++){
+            ranking2[i].addEventListener('mouseover',() => {
+                main_img2.src = img_sub2[i].src;
+            })
+        }
+
+        // 예매율순, 관객순을 누르면 서로 바뀌게 하는 스크립트
+        img_ranking2.style.display = 'none';
+        ranking_order[1].addEventListener('click',() => {
+            if( img_ranking2.style.display = 'none'){
+                img_ranking2.style.display = 'block';
+                img_ranking.style.display = 'none';
+            }
+        })
+        ranking_order[0].addEventListener('click',() => {
+            if( img_ranking.style.display = 'none'){
+                img_ranking.style.display = 'block';
+                img_ranking2.style.display = 'none';
+            }
+        })
+
+        // section 성인,청소년,경로,우대 기능
+        let plus_btn = document.querySelectorAll('.plus_btn');  // 더하기 버튼
+        let minus_btn = document.querySelectorAll('.minus_btn'); //빼기 버튼
+        let count_btn = document.querySelectorAll('.count_btn'); // 숫자값 버튼
+        console.log(plus_btn);
+        console.log(count_btn);
+        let sumCount = 0;
+
+        // 8명보다 더 많은 예약시 모달창
+        let overlay = document.querySelector('.overlay');
+        let modal_count8 = document.querySelector('.modal_count8');
+        let modal_btn = document.querySelectorAll('.modal_btn');
+
+
+        //우측 선택좌석 네모칸 선택자
+        let seatSelect = document.querySelectorAll('.seat-select');
+        //우측 선택좌석 네모칸 기본세팅
+        for(let i=0; i<seatSelect.length; i++){
+            seatSelect[i].textContent = '-';
+        }
+
+        // 플러스버튼 클릭시
+        for(let i = 0; i < plus_btn.length; i++){
+            plus_btn[i].addEventListener('click', () => {  
+                console.log(plus_btn[i]);
+                // 합계 8명 이하면 증가
+                if(sumCount < 8){
+                    count_btn[i].textContent++;
+                    sumCount += 1;
+                }else{ //8명 이상이면 모달창
+                    overlay.classList.add('active');
+                    modal_count8.classList.add('active');
+                }
+                //우측 '선택'네모 증가
+                for(let l=0; l<sumCount; l++){
+                    seatSelect[l].classList.add('possible');
+                }                
+
+                //배열 루프를 돌려서
+                for(let j=0;j<seatArr.length;j++){//행
+                    for(let k=0; k<seatArr[j].length; k++){//열
+                        //만약 한명만 입력했다면
+                        if(sumCount == 1){      
+                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
+                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
+                        }else{
+                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
+                            seatTr[j].children[k].classList.remove('unavailSeats');
+                            // 그러나 테이블 첫번째 열(알파벳)에만
+                            // 선택불가(unavailSeats)클래스 다시 주기
+                            seatTr[j].children[0].classList.add('unavailSeats');
+                        }
+                    }
+                }
+            })
+        }
+
+        //마이너스 버튼 클릭시
+        for(let i = 0; i < minus_btn.length; i++){
+            minus_btn[i].addEventListener('click', () => {               
+
+                // 합계 0 이상이면 감소
+                if(count_btn[i].textContent > 0){
+                    count_btn[i].textContent--;
+                    sumCount--;
+                    //console.log(sumCount);
+                    //우측 '선택'네모 감소
+                    seatSelect[sumCount].classList.remove('possible');
+                }
+
+                
+
+                //배열 루프를 돌려서
+                for(let j=0;j<seatArr.length;j++){//행
+                    for(let k=0; k<seatArr[j].length; k++){//열
+                        //만약 한명만 입력했다면
+                        if(sumCount == 1){      
+                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
+                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
+                        }else{
+                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
+                            seatTr[j].children[k].classList.remove('unavailSeats');
+                            // 그러나 테이블 첫번째 열(알파벳)에만
+                            // 선택불가(unavailSeats)클래스 다시 주기
+                            seatTr[j].children[0].classList.add('unavailSeats');
+                        }
+                    }
+                }
+            })
+        }
+        
+        for(let i = 0; i < modal_btn.length; i++){
+            modal_btn[i].addEventListener('click', () => {
+                overlay.classList.remove('active');
+                modal_count8.classList.remove('active');
+            })
+        }
+
+        // 경로 모달창
+        let modal_senior = document.querySelector('.modal_senior');
+        plus_btn[2].addEventListener('click',() => {
+            if(count_btn[2].textContent == 1){
+                modal_senior.classList.add('active');
+                overlay.classList.add('active');
+            }
+        })
+        for(let i = 0; i < modal_btn.length; i++){
+            modal_btn[i].addEventListener('click', () => {
+                overlay.classList.remove('active');
+                modal_senior.classList.remove('active');
+            })
+        }
+
         //좌석배열 생성
         let seatArr = Array.from(Array(10),() => new Array(11));
         //알파벳 배열생성
@@ -119,13 +675,12 @@
         let seat = document.querySelector('.seat');
         seat.innerHTML = result;
 
-        
 
         // 유형별 ID 선택자
-        let adult = document.getElementById('adult');
-        let teen = document.getElementById('teen');
-        let senior = document.getElementById('senior');
-        let discount = document.getElementById('discount');
+        let adult = document.querySelector('.adult .count_btn');
+        let teen = document.querySelector('.teen .count_btn');
+        let senior = document.querySelector('.senior .count_btn');
+        let discount = document.querySelector('.discount .count_btn');
    
         //총 인원수 합산
         let headCount = 0;
@@ -138,9 +693,6 @@
 
         //좌석 테이블의 tr(행) 선택자
         let seatTr = document.querySelectorAll('.seat table tr');
-
-        
-        //console.log(selectedSeat.length);
 
         for(let i=0;i<seatArr.length;i++){//행 
             for(let j=0;j<seatArr[i].length;j++){//열
@@ -155,10 +707,10 @@
                 seatTr[i].children[j].addEventListener('click',()=>{
 
                     //입력값(인원수) number로 저장
-                    adultNum = Number(adult.value);
-                    teenNum = Number(teen.value);
-                    seniorNum = Number(senior.value);
-                    discountNum = Number(discount.value);
+                    adultNum = Number(adult.textContent);
+                    teenNum = Number(teen.textContent);
+                    seniorNum = Number(senior.textContent);
+                    discountNum = Number(discount.textContent);
        
                     //총 인원수 합산
                     headCount = adultNum + teenNum + seniorNum + discountNum;
@@ -169,6 +721,16 @@
                     //인원수 합산이 0명일때
                     if(headCount == 0){
                         alert('관람하실 인원을 먼저 선택해주세요.');
+                    //인원수보다 더 많은 좌석을 선택했을때
+                    }else if(headCount < selectedSeat.length+1){
+                         //이미 선택된 좌석이 있을때
+                        if(seatTr[i].children[j].classList == 'selectedSeat'){
+                            // 선택된 좌석(selectedSeat) 클래스 제거
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        }else{//이미 선택된 좌석이 없어도 선택수량이 초과되었기때문에
+                            alert('좌석 선택이 완료되었습니다.');
+                            seatTr[i].children[j].classList.remove('selectedSeat');
+                        }
                     }else{
                         //이미 선택된 좌석이 있을때
                         if(seatTr[i].children[j].classList == 'selectedSeat'){
@@ -182,59 +744,57 @@
                             seatTr[i].children[j].classList.add('selectedSeat');
                         }
                     }
+                    
+                    //
+                    let possible = document.querySelectorAll('.possible');
 
-                    if(headCount <= selectedSeat.length){
-                        alert('좌석 선택이 완료되었습니다.');
-                        seatTr[i].children[j].classList.remove('selectedSeat');
+                    if(possible.length > 0){
+                        possible[0].classList.add('choice');                        
+                        possible[0].classList.remove('possible');
+                    }else{
+
                     }
+
+
                 })
             }
         }
-      
-
-        //인원수 입력 input 선택자
-        let inputCount = document.querySelectorAll('.section_left input[type="number"]');
-
-        //인원수 입력 input 갯수만큼 루프
-        for(let i=0; i<inputCount.length; i++){
-
-            //input에 인원수 number가 입력될때마다
-            inputCount[i].addEventListener('input',function(){   
-                
-                //입력값(인원수) number로 저장
-                adultNum = Number(adult.value);
-                teenNum = Number(teen.value);
-                seniorNum = Number(senior.value);
-                discountNum = Number(discount.value);
         
-                //총 인원수 합산
-                headCount = adultNum + teenNum + seniorNum + discountNum;
 
 
-                //배열 루프를 돌려서
-                for(let j=0;j<seatArr.length;j++){//행
-                    for(let k=0; k<seatArr[j].length; k++){//열
-                        //만약 한명만 입력했다면
-                        if(headCount == 1){      
-                            //각 행의 짝수열(2,4,6,8,10)만 선택불가(unavailSeats) 클래스 추가
-                            if(k % 2 == 0) seatTr[j].children[k].classList.add('unavailSeats');
-                        }else if(headCount > 8){ //인원 합계 8명 넘어가면
-                            alert('인원선택은 총 8명까지 가능합니다.');// 모달창
-                            //증가시킨 인원수 다시 감소
-                            return this.value-- 
-                        }else{
-                            // 총 인원수 1명 이외는 선택불가(unavailSeats)클래스 제거
-                            seatTr[j].children[k].classList.remove('unavailSeats');
-                            // 그러나 테이블 첫번째 열(알파벳)에만
-                            // 선택불가(unavailSeats)클래스 다시 주기
-                            seatTr[i].children[0].classList.add('unavailSeats');
-                        }
-                    }
+        //초기화 버튼 선택자
+        let reset = document.querySelector('.reset_btn');
+
+
+        //초기화 버튼 클릭시 동작
+        reset.addEventListener('click',()=>{
+            //모든 값 0으로 초기화
+            adultNum = 0;
+            teenNum = 0;
+            seniorNum = 0;
+            discountNum = 0;
+            headCount = 0;
+            sumCount = 0;
+
+            //인원수 입력 input 갯수만큼 루프
+            for(let i=0; i<count_btn.length; i++){
+                //입력창도 0으로 표시
+                count_btn[i].textContent = 0;                                
+            }
+
+            //좌석 배열 루프를 돌려서
+            for(let j=0;j<seatArr.length;j++){//행
+                for(let k=0; k<seatArr[j].length; k++){//열
+                    //좌석에 지정된 모든 클래스 제거
+                    seatTr[j].children[k].classList.remove('selectedSeat');
+                    seatTr[j].children[k].classList.remove('unavailSeats');
+                    //0번째열(알파벳)만 다시 클래스 추가
+                    seatTr[j].children[0].classList.add('unavailSeats');
                 }
-            })
-        }
-        
+            }
+        })
 
+       
     </script>
 </body>
 </html>
