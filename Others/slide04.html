@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제04</title>
+    
+</head>
+<body>
+    <label><input type="checkbox" id="checkAll" /> 전체 선택</label>
+        <ul>
+            <li>
+                <label><input type="checkbox" class="item-check" /> 항목 A</label>
+            </li>
+            <li>
+                <label><input type="checkbox" class="item-check" /> 항목 B</label>
+            </li>
+            <li>
+                <label><input type="checkbox" class="item-check" /> 항목 C</label>
+            </li>
+        </ul>
+    <script>
+        // 전체선택
+        let checkAll = document.getElementById('checkAll');
+        //항목별 선택
+        let itemCheck = document.querySelectorAll('.item-check');
+        
+        // change: 변경되는 사건이 일어나면
+        checkAll.addEventListener('change',()=>{
+            for(let i=0; i<itemCheck.length; i++){
+                //전체선택에 checked된 (여부)값을 항목에도 넣어줘라
+                itemCheck[i].checked = checkAll.checked;
+            }
+            console.log(checkAll.checked);
+        })
+
+    </script>
+</body>
+</html>

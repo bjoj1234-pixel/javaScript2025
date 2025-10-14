@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드롭다운 메뉴 만들기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .dropdown{
+            margin: 0 auto;
+            width: 300px;
+        }
+        #dropdownBtn{
+            background-color: #fff;
+            border: 0;
+            cursor: pointer;
+            font-size: 22px;
+        }
+        #dropdownBtn .arrow{
+            display: inline-block;
+        }
+        #dropdownBtn .arrow.active{
+            transform: rotate(180deg);
+        }
+
+        #dropdownMenu{
+            padding: 15px 25px;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+            width: fit-content;
+            color: gray;
+            display: none;
+        }
+        #dropdownMenu.active{
+            display: block;
+            margin-top: 7px;
+        }
+        #dropdownMenu li{
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        #dropdownMenu li:hover{
+            color: #000;
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropdown-btn" id="dropdownBtn">
+        고객센터 <span class="arrow">▼</span>
+        </button>
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li>공지사항</li>
+            <li>뉴스/이벤트</li>
+            <li>상품 리뷰</li>
+            <li>상품 문의</li>
+            <li>대량구매/도매문의</li>
+            <li>기타문의</li>
+        </ul>
+    </div>
+    <script>
+        let dropdownBtn = document.getElementById('dropdownBtn');
+        let dropdownMenu = document.getElementById('dropdownMenu');
+        let arrow = document.querySelector('.arrow');
+
+        dropdownBtn.addEventListener('click',()=>{
+            //arrow가 가지는 인라인요소때문에, transform: rotate(180deg)가 먹히려면 inline-block을 줘야함.
+            arrow.classList.toggle('active');
+            dropdownMenu.classList.toggle('active');
+        })
+    </script>
+</body>
+</html>
