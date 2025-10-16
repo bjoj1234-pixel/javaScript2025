@@ -1,4 +1,4 @@
-* {box-sizing:border-box;}
+* {box-sizing:border-box;outline: 0;}
 /*local or web(@import) 글꼴 작성위치*/
 /* reset.css */
 html,body,
@@ -17,3 +17,8 @@ table,tr,th,td {border-collapse:collapse;}
 ul,ol,li {list-style:none;}
 a {color:#000;}
 input {outline:none; /*border:0;*/}
+button{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
+    <!-- 최상단 배너 -->
+    <div class="top-banner">
+        <div class="top-banner-wrap">
+            <a href="#"><img src="img/top-banner.jpg" alt="#"></a>
+        </div>
+        <!-- 닫기버튼 -->
+        <button type="button" class="top-banner-close">
+            <i class="fa-solid fa-x"></i>
+        </button>
+    </div>
     <!-- 전체를 묶는 container -->
     <div class="megabox_container">
         <!-- header -->
@@ -348,130 +358,258 @@
         </header>
         <!-- 섹션시작 -->
         <div id="section-wrap">
-            <div class="pop-up">
-                <div class="pop-img">
-                    <img src="img/modal-banner1.jpg" alt="#">
-                </div>
-                <div class="pop-btn">
-                    <div class="btn-left">
-                        <!-- 재생/정지 버튼-->
-                         <button type="button" class="playBtn"><!-- \u23F8; --></button>
-                        <!-- 페이지표시 동그라미 -->
-                        <div class="circle">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>                      
-                    </div>
-                    <div class="btn-right">
-                        <input type="checkbox" name="oneday" id="oneday">
-                        <label for="oneday">하루동안 보지 않기</label>
-                    </div>
-                </div>
-                <a href="#" class="x-btn">
-
-                </a>
-            </div>
             <section class="section01">
-                <div class="section01-bg">
-                    <div class="bg-pattern"></div>
-                    <img src="img/main1-bg.jpg" alt="#">
-                </div>
-                <div class="tap-sorting">
-                    <a href="#" class="tap-tit">박스오피스</a>
-                    <a href="#" class="more">
-                        더 많은 영화보기
-                        <i class="fa-solid fa-plus"></i>
+                <!-- 팝업 시작 -->
+                <div class="pop-up">
+                    <div class="pop-img">
+                        <a href="#"><img src="img/modal-banner1.jpg" alt="#" class="active"></a>
+                        <a href="#"><img src="img/modal-banner2.jpg" alt="#"></a>
+                        <a href="#"><img src="img/modal-banner3.jpg" alt="#"></a>
+                        <a href="#"><img src="img/modal-banner4.jpg" alt="#"></a>
+                        <a href="#"><img src="img/modal-banner5.jpg" alt="#"></a>
+                    </div>
+                    <div class="pop-btn">
+                        <div class="btn-left">
+                            <!-- 재생/정지 버튼-->
+                            <button type="button" class="playBtn"></button>
+                            <!-- 페이지표시 동그라미 -->
+                            <div class="circle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>                      
+                        </div>
+                        <div class="btn-right">
+                            <input type="checkbox" name="oneday" id="oneday">
+                            <label for="oneday">하루동안 보지 않기</label>
+                        </div>
+                    </div>
+                    <a href="#" class="x-btn">
+                        <i class="fa-solid fa-circle-xmark"></i>
                     </a>
                 </div>
-                <ul class="movie-list">
-                    <li>
-                        <p class="number">1</p>
-                        <div class="img-wrap">
-                            <img src="img/main1-1.jpg" alt="#">
-                            <div class="img-txt">
-                                <p class="desc">
-                                    최강의 두 사람, 다시는 돌아갈 수 없는 푸른 봄<br>2006년 봄, 주술고등전문학교 시절의 고죠 사토루와 게토 스구루.<br>불사의 술식을 가진 주술계 핵심, 텐겐으로부터 의뢰가 도착한다.<br>의뢰는 두 가지, 텐겐과 적합자인 성장체 아마나이 리코라는 소녀의 ‘호위’와 ‘말소’.<br>두 사람은 주술계 존속을 위한 호위 임무에 나서지만<br>후시구로라 불리는 ‘주술사 킬러’가 암살을 노리고 나타난다.<br><br>최강의 주술사와 최악의 주저사가 된 고죠와 게토,<br>두 사람의 엇갈린 운명의 과거가 밝혀진다.
-                                </p>
-                                <div class="score">
-                                    <span class="mov_tit">관람평</span>
-                                    <span class="mov_score">9.5</span>
+                <!-- 팝업 끝 -->
+                <div class="section01-wrap">
+                    <div class="section01-bg">
+                        <div class="bg-pattern"></div>
+                        <img src="img/main1-bg.jpg" alt="#">
+                    </div>
+                    <div class="tap-sorting">
+                        <a href="#" class="tap-tit">박스오피스</a>
+                        <a href="#" class="more">
+                            더 많은 영화보기<i class="fa-solid fa-plus"></i>
+                        </a>
+                    </div>
+                    <ul class="movie-list">
+                        <li>
+                            <p class="number">1</p>
+                            <div class="img-wrap">
+                                <img src="img/main1-1.jpg" alt="#">
+                                <div class="img-txt">
+                                    <p class="desc">
+                                        최강의 두 사람, 다시는 돌아갈 수 없는 푸른 봄<br>2006년 봄, 주술고등전문학교 시절의 고죠 사토루와 게토 스구루.<br>불사의 술식을 가진 주술계 핵심, 텐겐으로부터 의뢰가 도착한다.<br>의뢰는 두 가지, 텐겐과 적합자인 성장체 아마나이 리코라는 소녀의 ‘호위’와 ‘말소’.<br>두 사람은 주술계 존속을 위한 호위 임무에 나서지만<br>후시구로라 불리는 ‘주술사 킬러’가 암살을 노리고 나타난다.<br><br>최강의 주술사와 최악의 주저사가 된 고죠와 게토,<br>두 사람의 엇갈린 운명의 과거가 밝혀진다.
+                                    </p>
+                                    <div class="score">
+                                        <span class="mov_tit">관람평</span>
+                                        <span class="mov_score">9.5</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-btn">
-                            <button type="button">
-                                <i class="fa-regular fa-heart"></i>1.2k
-                            </button>
-                            <a href="#">예매</a>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="number">2</p>
-                        <div class="img-wrap">
-                            <img src="img/main1-2.jpg" alt="#">
-                            <div class="img-txt">
-                                <p class="desc">
-                                    인기 애니메이션 '체인소 맨' 첫 공식 극장판 국내 상륙!<br>압도적 배틀 액션이 스크린에서 폭발한다!<br><br>데블 헌터로 일하는 소년 ‘덴지’는 조직의 배신으로 죽음에 내몰린 순간<br>전기톱 악마견 ‘포치타’와의 계약으로 하나로 합쳐져<br>누구도 막을 수 없는 존재 ‘체인소 맨’으로 다시 태어난다.<br><br>악마와 사냥꾼, 그리고 정체불명의 적들이 얽힌 잔혹한 전쟁 속에서<br>‘레제’라는 이름의 미스터리한 소녀가 ‘덴지’ 앞에 나타나는데…<br>‘덴지’는 사랑이라는 감정에 이끌려 지금껏 가장 위험한 배틀에 몸을 던진다!
-                                </p>
-                                <div class="score">
-                                    <span class="mov_tit">관람평</span>
-                                    <span class="mov_score">9.4</span>
+                            <div class="list-btn">
+                                <button type="button">
+                                    <i class="fa-regular fa-heart"></i>1.2k
+                                </button>
+                                <a href="#">예매</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="number">2</p>
+                            <div class="img-wrap">
+                                <img src="img/main1-2.jpg" alt="#">
+                                <div class="img-txt">
+                                    <p class="desc">
+                                        인기 애니메이션 '체인소 맨' 첫 공식 극장판 국내 상륙!<br>압도적 배틀 액션이 스크린에서 폭발한다!<br><br>데블 헌터로 일하는 소년 ‘덴지’는 조직의 배신으로 죽음에 내몰린 순간<br>전기톱 악마견 ‘포치타’와의 계약으로 하나로 합쳐져<br>누구도 막을 수 없는 존재 ‘체인소 맨’으로 다시 태어난다.<br><br>악마와 사냥꾼, 그리고 정체불명의 적들이 얽힌 잔혹한 전쟁 속에서<br>‘레제’라는 이름의 미스터리한 소녀가 ‘덴지’ 앞에 나타나는데…<br>‘덴지’는 사랑이라는 감정에 이끌려 지금껏 가장 위험한 배틀에 몸을 던진다!
+                                    </p>
+                                    <div class="score">
+                                        <span class="mov_tit">관람평</span>
+                                        <span class="mov_score">9.4</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-btn">
-                            <button type="button">
-                                <i class="fa-regular fa-heart"></i>3.9k
-                            </button>
-                            <a href="#">예매</a>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="number">3</p>
-                        <div class="img-wrap">
-                            <img src="img/main1-3.jpg" alt="#">
-                            <div class="img-txt">
-                                <p class="desc">
-                                    ‘다 이루었다’는 생각이 들 만큼 삶에 만족하던 25년 경력의 제지 전문가 ‘만수’(이병헌).<br>아내 ‘미리’(손예진), 두 아이, 반려견들과 함께 행복한 일상을 보내던 만수는<br>회사로부터 돌연 해고 통보를 받는다.<br><br>“미안합니다. 어쩔 수가 없습니다.”<br><br>목이 잘려 나가는 듯한 충격에 괴로워하던 만수는,<br>가족을 위해 석 달 안에 반드시 재취업하겠다고 다짐한다.<br>그 다짐이 무색하게도, 그는 1년 넘게 마트에서 일하며 면접장을 전전하고,<br>급기야 어렵게 장만한 집마저 빼앗길 위기에 처한다.<br><br>무작정 [문 제지]를 찾아가 필사적으로 이력서를 내밀지만,<br>‘선출’(박희순) 반장 앞에서 굴욕만 당한다.<br>[문 제지]의 자리는 누구보다 자신이 제격이라고 확신한 만수는 모종의 결심을 한다.<br><br>“나를 위한 자리가 없다면, 내가 만들어서라도 취업에 성공하겠다.”
-                                </p>
-                                <div class="score">
-                                    <span class="mov_tit">관람평</span>
-                                    <span class="mov_score">8.1</span>
+                            <div class="list-btn">
+                                <button type="button">
+                                    <i class="fa-regular fa-heart"></i>3.9k
+                                </button>
+                                <a href="#">예매</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="number">3</p>
+                            <div class="img-wrap">
+                                <img src="img/main1-3.jpg" alt="#">
+                                <div class="img-txt">
+                                    <p class="desc">
+                                        ‘다 이루었다’는 생각이 들 만큼 삶에 만족하던 25년 경력의 제지 전문가 ‘만수’(이병헌).<br>아내 ‘미리’(손예진), 두 아이, 반려견들과 함께 행복한 일상을 보내던 만수는<br>회사로부터 돌연 해고 통보를 받는다.<br><br>“미안합니다. 어쩔 수가 없습니다.”<br><br>목이 잘려 나가는 듯한 충격에 괴로워하던 만수는,<br>가족을 위해 석 달 안에 반드시 재취업하겠다고 다짐한다.<br>그 다짐이 무색하게도, 그는 1년 넘게 마트에서 일하며 면접장을 전전하고,<br>급기야 어렵게 장만한 집마저 빼앗길 위기에 처한다.<br><br>무작정 [문 제지]를 찾아가 필사적으로 이력서를 내밀지만,<br>‘선출’(박희순) 반장 앞에서 굴욕만 당한다.<br>[문 제지]의 자리는 누구보다 자신이 제격이라고 확신한 만수는 모종의 결심을 한다.<br><br>“나를 위한 자리가 없다면, 내가 만들어서라도 취업에 성공하겠다.”
+                                    </p>
+                                    <div class="score">
+                                        <span class="mov_tit">관람평</span>
+                                        <span class="mov_score">8.1</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-btn">
-                            <button type="button">
-                                <i class="fa-regular fa-heart"></i>1.7k
-                            </button>
-                            <a href="#">예매</a>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="number">4</p>
-                        <div class="img-wrap">
-                            <img src="img/main1-4.jpg" alt="#">
-                            <div class="img-txt">
-                                <p class="desc">
-                                    평범한 수요일,<br>어느 마을 학교의 같은 반 학생 17명이 등교하지 않는다.<br>그날 새벽 2시 17분, 잠에서 깬 아이들이 어둠 속으로 달려가 돌아오지 않았기 때문이다.<br>유일하게 남은 아이는 입을 다물고, <br>사라진 아이들을 찾으려는 이들은 악몽 같은 현실을 마주하게 되는데…
-                                </p>
-                                <div class="score">
-                                    <span class="mov_tit">관람평</span>
-                                    <span class="mov_score">7.5</span>
+                            <div class="list-btn">
+                                <button type="button">
+                                    <i class="fa-regular fa-heart"></i>1.7k
+                                </button>
+                                <a href="#">예매</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="number">4</p>
+                            <div class="img-wrap">
+                                <img src="img/main1-4.jpg" alt="#">
+                                <div class="img-txt">
+                                    <p class="desc">
+                                        평범한 수요일,<br>어느 마을 학교의 같은 반 학생 17명이 등교하지 않는다.<br>그날 새벽 2시 17분, 잠에서 깬 아이들이 어둠 속으로 달려가 돌아오지 않았기 때문이다.<br>유일하게 남은 아이는 입을 다물고, <br>사라진 아이들을 찾으려는 이들은 악몽 같은 현실을 마주하게 되는데…
+                                    </p>
+                                    <div class="score">
+                                        <span class="mov_tit">관람평</span>
+                                        <span class="mov_score">7.5</span>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="list-btn">
+                                <button type="button">
+                                    <i class="fa-regular fa-heart"></i>471
+                                </button>
+                                <a href="#">예매</a>
+                            </div>
+                        </li>                    
+                    </ul>
+                    <div class="search-link">
+                        <div class="search-movie">
+                            <div class="search-movie-border">
+                                <input type="text" placeholder="영화명을 입력해 주세요">
+                                <button type="button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="list-btn">
-                            <button type="button">
-                                <i class="fa-regular fa-heart"></i>471
-                            </button>
-                            <a href="#">예매</a>
+                        <div class="search-time">
+                            <a href="#">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <span>상영시간표</span>
+                            </a>
                         </div>
-                    </li>                    
-                </ul>
+                        <div class="search-box">
+                            <a href="#">
+                                <i class="fa-solid fa-film"></i>
+                                <span>박스오피스</span>
+                            </a>
+                        </div>
+                        <div class="search-ticket">
+                            <a href="#">
+                                <i class="fa-solid fa-ticket"></i>
+                                <span>빠른예매</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="move-mouse">
+                    <img src="img/mouse.png" alt="#">
+                </div>
+            </section>
+            <section class="section02">
+                <div class="section02-wrap">
+                    <div class="sec-tit">혜택
+                        <a href="#">+</a>
+                    </div>
+                    <div class="sec02-top-wrap">
+                        <div class="sec02-left">
+                            <div class="benefit">
+                                <div class="benefit-tit">
+                                    <a href="#"><img src="img/sec02-1.jpg" alt="#" class="active"></a>
+                                    <a href="#"><img src="img/sec02-2.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-3.png" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-4.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-5.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-6.jpg" alt="#"></a>
+                                </div>
+                                <div class="benefit-img">
+                                    <a href="#"><img src="img/sec02-1-2.jpg" alt="#" class="active"></a>
+                                    <a href="#"><img src="img/sec02-2-2.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-3-2.png" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-4-2.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-5-2.jpg" alt="#"></a>
+                                    <a href="#"><img src="img/sec02-6-2.jpg" alt="#"></a>
+                                </div>
+                                <div class="benefit-bar">
+                                    <!-- 페이지표시 작대기 -->
+                                    <div class="bar">
+                                        <span class="active"></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <!-- 좌측 버튼 -->
+                                    <button type="button" class="benefit-btn-left"></button>
+                                    <!-- 우측 버튼 -->
+                                    <button type="button" class="benefit-btn-right"></button>
+                                    <!-- 재생/정지 버튼-->
+                                    <button type="button" class="benefit-btn-play"></button>
+                                    <!-- 페이지 표시 -->
+                                    <span class="page">
+                                        <span class="page-sel"></span> /
+                                        <span class="page-all"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bottom-banner">
+                                <a href="#" class="sec02-bn01"><img src="img/sec02-bn01.jpg" alt="#"></a>
+                                <a href="#" class="sec02-bn02"><img src="img/sec02-bn02.jpg" alt="#"></a>
+                                <a href="#" class="sec02-bn03"><img src="img/sec02-bn03.jpg" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="sec02-bottom-wrap">
+                    <ol>
+                        <li>
+                            <a href="#">
+                                <img src="img/sec02-icon01.png" alt="#">
+                                <span>VIP LOUNGE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/sec02-icon02.png" alt="#">
+                                <span>멤버십</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/sec02-icon03.png" alt="#">
+                                <span>할인카드안내</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/sec02-icon04.png" alt="#">
+                                <span>이벤트</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/sec02-icon05.png" alt="#">
+                                <span>스토어</span>
+                            </a>
+                        </li>
+                    </ol>
+                </div> 
             </section>
         </div>
         <!-- 섹션끝 -->
@@ -714,7 +852,7 @@
         // 배너 페이지표시 동그라미
         let circle = document.querySelectorAll('.circle span');
          // 팝업이미지
-        let popImg = document.querySelector('.pop-img img');
+        let popImg = document.querySelectorAll('.pop-img img');
         // 배너 인덱스 수 세팅
         let current = 0;
         let timer;
@@ -725,11 +863,13 @@
 
         // 팝업 보여지는 함수
         function popShow(current){
-            popImg.src = `img/modal-banner${current+1}.jpg`;
+            //popImg.src = `img/modal-banner${current+1}.jpg`;
 
             for(let i=0;i<circle.length;i++){
                 circle[i].classList.remove('active');
+                popImg[i].classList.remove('active');
             }
+            popImg[current].classList.add('active');
             circle[current].classList.add('active');
         }
         // 팝업 인덱스 자동변경 함수
@@ -737,7 +877,7 @@
             timer = setInterval(()=>{
                 current = (current + 1) % circle.length;                
                 popShow(current);
-            },1000)            
+            },2000)            
         }
         
         //팝업 정지 함수
@@ -756,13 +896,191 @@
                 popStop();
                 //재생표시
                 playBtn.textContent = '\u25B6';
+                playBtn.style.fontSize = '11px';
             }else{
                 popChange();
                 //정지표시
                 playBtn.textContent = '\u23F8';
+                playBtn.style.fontSize = '15px';
             }
             isPlay = !isPlay;
         })
+
+        // 팝업 동그라미 눌렀을때 해당 index의 이미지 보여지게 하는 함수
+        for(let i=0; i<circle.length; i++){
+            circle[i].addEventListener('click',()=>{
+                popStop();
+
+                for(let j=0; j<circle.length; j++){
+                    popImg[j].classList.remove('active');
+                    circle[j].classList.remove('active');
+                }
+                popImg[i].classList.add('active');
+                circle[i].classList.add('active');
+                current = i;
+
+                popChange();
+            })
+        }
+
+        // 팝업 x버튼
+        let xBtn = document.querySelector('.x-btn');
+        // 하루동안 안보이기 input
+        let oneDay = document.getElementById('oneday');
+        // 팝업창 전체
+        let popUp = document.querySelector('.pop-up');
+
+        //하루동안 보이지 않기 함수 (일단 3초만에 다시 나타나게 함)
+        xBtn.addEventListener('click',()=>{
+            if(oneDay.checked){
+                popUp.style.display = 'none';
+                let timer = setTimeout(()=>{
+                    popUp.style.display = 'block';
+                },3000);                
+            }else{
+                popUp.style.display = 'none';
+            }
+        })
+
+        // 최상단 배너
+        let topBanner = document.querySelector('.top-banner');
+        // 최상단 배너 닫기버튼
+        let topBannerClose = document.querySelector('.top-banner-close');
+        // 닫기 버튼 클릭시 배너 닫힘
+        topBannerClose.addEventListener('click',()=>{
+            topBanner.style.display = 'none';
+        })
+
+        //마우스 아이콘
+        let moveMouse = document.querySelector('.move-mouse');
+        let moveCurrent = 0;
+
+        let moveMouseTimer = setInterval(()=>{
+            if(moveCurrent === 0){
+                moveMouse.style.bottom = '95px';
+                moveCurrent++;
+            }else{
+                moveMouse.style.bottom = '105px';
+                moveCurrent = 0;
+            }
+        },500)
+
+        //section02
+        //타이틀 이미지
+        let beneTit = document.querySelectorAll('.benefit-tit img');
+        // 우측 이미지
+        let beneImg = document.querySelectorAll('.benefit-img img');
+        // 페이지표시 작대기
+        let bar = document.querySelectorAll('.bar span');
+        //좌측버튼
+        let btnLeft = document.querySelector('.benefit-btn-left');
+        btnLeft.textContent = '\u276E';
+        //우측버튼
+        let btnRight = document.querySelector('.benefit-btn-right');
+        btnRight.textContent = '\u276F';
+        // 재생/정지버튼
+        let btnPlay = document.querySelector('.benefit-btn-play');
+        btnPlay.textContent = '\u23F8';
+        //선택된 페이지
+        let pageSel = document.querySelector('.page-sel');
+        pageSel.textContent = 1;
+        //전체 페이지
+        let pageAll = document.querySelector('.page-all');
+        pageAll.textContent = bar.length;
+        // 배너 인덱스 수 세팅
+        let current2 = 0;
+        let timer2;
+        let isPlay2 = true;
+        
+        //혜택 배너 움직이기
+        function benefitShow(current2){
+            for(let i=0; i<bar.length; i++){
+                beneTit[i].classList.remove('active');
+                beneImg[i].classList.remove('active');
+                bar[i].classList.remove('active');
+            }
+            if(current2 == 0){
+                btnLeft.classList.remove('gray');
+                btnLeft.classList.add('gray');
+            }else{
+                btnLeft.classList.remove('gray');
+            }
+            if(current2 == bar.length-1){
+                btnRight.classList.remove('gray');
+                btnRight.classList.add('gray');
+            }else{
+                btnRight.classList.remove('gray');
+            }
+            beneTit[current2].classList.add('active');
+            beneImg[current2].classList.add('active');
+            bar[current2].classList.add('active');
+            pageSel.textContent = current2 + 1;
+        }
+        //혜택 배너 인덱스 함수
+        function benefitChange(){
+            timer2 = setInterval(()=>{
+                current2 = (current2 + 1) % bar.length;
+                benefitShow(current2);
+            },3000)
+        }
+        //혜택 배너 멈춤
+        function benefitStop(){
+            clearInterval(timer2);
+            //재생표시
+            btnPlay.textContent = '\u25B6';
+            btnPlay.style.fontSize = '10px';
+            btnPlay.style.paddingTop = '1px';
+        }
+
+        benefitShow(current2);
+        benefitChange();
+
+        // 재생/정지 버튼 누를때 동작하는 함수
+        btnPlay.addEventListener('click',()=>{
+            if(isPlay2){
+                benefitStop();
+                //재생표시
+                btnPlay.textContent = '\u25B6';
+                btnPlay.style.fontSize = '10px';
+                btnPlay.style.paddingTop = '1px';
+            }else{
+                benefitChange();
+                //정지표시
+                btnPlay.textContent = '\u23F8';
+                btnPlay.style.fontSize = '13px';
+            }
+            isPlay2 = !isPlay2;
+        })
+
+        // 좌측버튼 클릭시
+        btnLeft.addEventListener('click',()=>{
+            benefitStop();
+            if(current2 == 0){
+                current2 = 0;
+            }else{
+                current2--;
+            }
+            isPlay2 = false;
+            benefitShow(current2);
+        })
+        // 우측버튼 클릭시
+        btnRight.addEventListener('click',()=>{
+            benefitStop();
+            if(current2 == bar.length-1){
+                current2 = bar.length-1;
+            }else{
+                current2++;
+            }
+            isPlay2 = false;
+            benefitShow(current2);
+        })
+
+
+
+
+
+
+
 
         
     </script>
