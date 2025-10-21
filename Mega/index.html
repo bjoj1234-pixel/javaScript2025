@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaBox</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script defer src="js/header.js"></script>
+    <script defer src="js/index.js"></script>
 </head>
 <body>
     <!-- 최상단 배너 -->
     <div class="top-banner">
         <div class="top-banner-wrap">
-            <a href="#"><img src="img/top-banner.jpg" alt="#"></a>
+            <a href="#none"><img src="img/top-banner.jpg" alt="#"></a>
         </div>
         <!-- 닫기버튼 -->
         <button type="button" class="top-banner-close">
@@ -35,7 +39,7 @@
                     <!-- header_top 우측 -->
                     <div class="logout">
                         <a href="#none" title="로그인">로그인</a>
-                        <a href="#none" >빠른예매</a>
+                        <a href="megabox.html" >빠른예매</a>
                     </div>
                 </div>
                 <!-- header_center -->
@@ -53,7 +57,7 @@
                     </div>
                      <!-- 메인로고 -->
                     <h1>
-                        <a href="#none" class="main_logo" title="MEGABOX 메인으로 가기">
+                        <a href="index.html" class="main_logo" title="MEGABOX 메인으로 가기">
                             <img src="img/logo-white.png">
                         </a>
                     </h1>
@@ -71,18 +75,18 @@
                 <div class="menu_wrap">
                     <ul class="menu1">
                         <li>
-                            <a href="#none" class="depth1" title="영화">영화</a>
+                            <a href="movieList.html" class="depth1" title="영화">영화</a>
                             <div class="depth2">
                                 <ul class="movie">
-                                    <li><a href="#none" title="전체영화">전체영화</a></li>
+                                    <li><a href="movieList.html" title="전체영화">전체영화</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li>
-                            <a href="#none" class="depth1" title="예매">예매</a>
+                            <a href="megabox.html" class="depth1" title="예매">예매</a>
                             <div class="depth2">
                                 <ul class="reservation">
-                                    <li><a href="#none" title="빠른예매">빠른예매</a></li>
+                                    <li><a href="megabox.html" title="빠른예매">빠른예매</a></li>
                                     <li><a href="#none" title="상영시간표">상영시간표</a></li>
                                     <li><a href="#none" title="더 부티크 프라이빗 예매">더 부티크 프라이빗 예매</a></li>
                                 </ul>
@@ -145,7 +149,7 @@
                             </ul>
                             <ul>
                                 <li class="list_title">예매</li>
-                                <a href="#none">
+                                <a href="megabox.html">
                                     <li>빠른예매</li>
                                 </a>
                                 <a href="#none">
@@ -358,15 +362,16 @@
         </header>
         <!-- 섹션시작 -->
         <div id="section-wrap">
+            <!-- section01 시작 -->
             <section class="section01">
                 <!-- 팝업 시작 -->
                 <div class="pop-up">
                     <div class="pop-img">
-                        <a href="#"><img src="img/modal-banner1.jpg" alt="#" class="active"></a>
-                        <a href="#"><img src="img/modal-banner2.jpg" alt="#"></a>
-                        <a href="#"><img src="img/modal-banner3.jpg" alt="#"></a>
-                        <a href="#"><img src="img/modal-banner4.jpg" alt="#"></a>
-                        <a href="#"><img src="img/modal-banner5.jpg" alt="#"></a>
+                        <a href="#none"><img src="img/modal-banner1.jpg" alt="#" class="active"></a>
+                        <a href="#none"><img src="img/modal-banner2.jpg" alt="#"></a>
+                        <a href="#none"><img src="img/modal-banner3.jpg" alt="#"></a>
+                        <a href="#none"><img src="img/modal-banner4.jpg" alt="#"></a>
+                        <a href="#none"><img src="img/modal-banner5.jpg" alt="#"></a>
                     </div>
                     <div class="pop-btn">
                         <div class="btn-left">
@@ -386,7 +391,7 @@
                             <label for="oneday">하루동안 보지 않기</label>
                         </div>
                     </div>
-                    <a href="#" class="x-btn">
+                    <a href="#none" class="x-btn">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </a>
                 </div>
@@ -397,8 +402,8 @@
                         <img src="img/main1-bg.jpg" alt="#">
                     </div>
                     <div class="tap-sorting">
-                        <a href="#" class="tap-tit">박스오피스</a>
-                        <a href="#" class="more">
+                        <a href="#none" class="tap-tit">박스오피스</a>
+                        <a href="#none" class="more">
                             더 많은 영화보기<i class="fa-solid fa-plus"></i>
                         </a>
                     </div>
@@ -421,7 +426,7 @@
                                 <button type="button">
                                     <i class="fa-regular fa-heart"></i>1.2k
                                 </button>
-                                <a href="#">예매</a>
+                                <a href="#none">예매</a>
                             </div>
                         </li>
                         <li>
@@ -442,7 +447,7 @@
                                 <button type="button">
                                     <i class="fa-regular fa-heart"></i>3.9k
                                 </button>
-                                <a href="#">예매</a>
+                                <a href="#none">예매</a>
                             </div>
                         </li>
                         <li>
@@ -463,7 +468,7 @@
                                 <button type="button">
                                     <i class="fa-regular fa-heart"></i>1.7k
                                 </button>
-                                <a href="#">예매</a>
+                                <a href="#none">예매</a>
                             </div>
                         </li>
                         <li>
@@ -484,7 +489,7 @@
                                 <button type="button">
                                     <i class="fa-regular fa-heart"></i>471
                                 </button>
-                                <a href="#">예매</a>
+                                <a href="#none">예매</a>
                             </div>
                         </li>                    
                     </ul>
@@ -498,19 +503,19 @@
                             </div>
                         </div>
                         <div class="search-time">
-                            <a href="#">
+                            <a href="#none">
                                 <i class="fa-regular fa-calendar-days"></i>
                                 <span>상영시간표</span>
                             </a>
                         </div>
                         <div class="search-box">
-                            <a href="#">
+                            <a href="#none">
                                 <i class="fa-solid fa-film"></i>
                                 <span>박스오피스</span>
                             </a>
                         </div>
                         <div class="search-ticket">
-                            <a href="#">
+                            <a href="megabox.html">
                                 <i class="fa-solid fa-ticket"></i>
                                 <span>빠른예매</span>
                             </a>
@@ -521,29 +526,31 @@
                     <img src="img/mouse.png" alt="#">
                 </div>
             </section>
+            <!-- section01 끝 -->
+             <!-- section02 시작 -->
             <section class="section02">
                 <div class="section02-wrap">
                     <div class="sec-tit">혜택
-                        <a href="#">+</a>
+                        <a href="#none">+</a>
                     </div>
                     <div class="sec02-top-wrap">
                         <div class="sec02-left">
                             <div class="benefit">
                                 <div class="benefit-tit">
-                                    <a href="#"><img src="img/sec02-1.jpg" alt="#" class="active"></a>
-                                    <a href="#"><img src="img/sec02-2.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-3.png" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-4.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-5.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-6.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-1.jpg" alt="#" class="active"></a>
+                                    <a href="#none"><img src="img/sec02-2.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-3.png" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-4.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-5.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-6.jpg" alt="#"></a>
                                 </div>
                                 <div class="benefit-img">
-                                    <a href="#"><img src="img/sec02-1-2.jpg" alt="#" class="active"></a>
-                                    <a href="#"><img src="img/sec02-2-2.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-3-2.png" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-4-2.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-5-2.jpg" alt="#"></a>
-                                    <a href="#"><img src="img/sec02-6-2.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-1-2.jpg" alt="#" class="active"></a>
+                                    <a href="#none"><img src="img/sec02-2-2.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-3-2.png" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-4-2.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-5-2.jpg" alt="#"></a>
+                                    <a href="#none"><img src="img/sec02-6-2.jpg" alt="#"></a>
                                 </div>
                                 <div class="benefit-bar">
                                     <!-- 페이지표시 작대기 -->
@@ -569,9 +576,9 @@
                                 </div>
                             </div>
                             <div class="bottom-banner">
-                                <a href="#" class="sec02-bn01"><img src="img/sec02-bn01.jpg" alt="#"></a>
-                                <a href="#" class="sec02-bn02"><img src="img/sec02-bn02.jpg" alt="#"></a>
-                                <a href="#" class="sec02-bn03"><img src="img/sec02-bn03.jpg" alt="#"></a>
+                                <a href="#none" class="sec02-bn01"><img src="img/sec02-bn01.jpg" alt="#"></a>
+                                <a href="#none" class="sec02-bn02"><img src="img/sec02-bn02.jpg" alt="#"></a>
+                                <a href="#none" class="sec02-bn03"><img src="img/sec02-bn03.jpg" alt="#"></a>
                             </div>
                         </div>
                     </div>  
@@ -579,31 +586,31 @@
                 <div class="sec02-bottom-wrap">
                     <ol>
                         <li>
-                            <a href="#">
+                            <a href="#none">
                                 <img src="img/sec02-icon01.png" alt="#">
                                 <span>VIP LOUNGE</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#none">
                                 <img src="img/sec02-icon02.png" alt="#">
                                 <span>멤버십</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#none">
                                 <img src="img/sec02-icon03.png" alt="#">
                                 <span>할인카드안내</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#none">
                                 <img src="img/sec02-icon04.png" alt="#">
                                 <span>이벤트</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#none">
                                 <img src="img/sec02-icon05.png" alt="#">
                                 <span>스토어</span>
                             </a>
@@ -611,6 +618,30 @@
                     </ol>
                 </div> 
             </section>
+            <!-- section02 끝 -->
+            <!-- section03 시작 -->
+            <section class="section03">
+                <div class="sec-tit">메가박스 안내</div>
+                <div class="slider">
+                    <ol>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none" class="new"></a></li>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none" class="new"></a></li>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none" class="new"></a></li>
+                        <li><a href="#none"></a></li>
+                        <li><a href="#none"></a></li>
+                    </ol>
+                </div>
+                <div class="slider-arrow">
+                    <a href="#none" class="slider-left"><img src="img/intro-arrow.png" alt="#"></a>
+                    <a href="#none" class="slider-right"><img src="img/intro-arrow.png" alt="#"></a>
+                </div>
+            </section>
+            <!-- section03 끝 -->
         </div>
         <!-- 섹션끝 -->
         <footer>
@@ -654,435 +685,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-
-    <script>
-         // 목록 및 검색 토글을 위한 document
-        let list_btn = document.querySelector('#list_btn');
-        let search_btn = document.querySelector('#search_btn');
-        let list_toggle = document.querySelector('.list_toggle');
-        let search_toggle = document.querySelector('.search_toggle');
-
-        // 랭킹에 마우스 오버시 영화 이미지 변경을 위한 document 2세트
-        let main_img = document.querySelector('#main_img');
-        let img_sub = document.querySelectorAll('.img_sub');
-        let ranking = document.querySelectorAll('.ranking');
-
-        let main_img2 = document.querySelector('#main_img2');
-        let img_sub2 = document.querySelectorAll('.img_sub2');
-        let ranking2 = document.querySelectorAll('.ranking2');
-        
-        // 예매율순과 관객순을 서로 바꾸기 위한 document
-        let ranking_order = document.querySelectorAll('.ranking_order');
-        let img_ranking = document.querySelector('.img_ranking');
-        let img_ranking2 = document.querySelector('.img_ranking2');
-
-        // 목록 버튼 토글
-        list_btn.addEventListener('click',() =>{
-            list_toggle.classList.toggle('list');
-            search_toggle.classList.remove('input_toggle');
-            list_btn.classList.toggle('btn_on');
-            search_btn.classList.remove('btn_on');
-        })
-        // 검색 버튼 토글
-        search_btn.addEventListener('click',() =>{
-            search_toggle.classList.toggle('input_toggle');
-            list_toggle.classList.remove('list');
-            search_btn.classList.toggle('btn_on');
-            list_btn.classList.remove('btn_on');
-        })
-
-        // 메뉴버튼 마우스 오버시 서브메뉴
-        let depth2 = document.querySelectorAll('.depth2');
-        let depth1 = document.querySelectorAll('.depth1');
-        let header = document.querySelector('#head_top');
-
-        depth1[0].addEventListener('mouseover',() => {
-            depth1[0].classList.add('hover');
-            depth1[1].classList.remove('hover');
-            depth1[2].classList.remove('hover');
-            depth1[3].classList.remove('hover');
-            depth1[4].classList.remove('hover');
-            depth1[5].classList.remove('hover');
-            
-            depth2[0].classList.add('on');
-            depth2[1].classList.remove('on');
-            depth2[2].classList.remove('on');
-            depth2[3].classList.remove('on');
-            depth2[4].classList.remove('on');
-            depth2[5].classList.remove('on');
-        })
-        
-        depth1[1].addEventListener('mouseover',() => {
-            depth1[1].classList.add('hover');
-            depth1[0].classList.remove('hover');
-            depth1[2].classList.remove('hover');
-            depth1[3].classList.remove('hover');
-            depth1[4].classList.remove('hover');
-            depth1[5].classList.remove('hover');
-
-            depth2[1].classList.add('on');
-            depth2[0].classList.remove('on');
-            depth2[2].classList.remove('on');
-            depth2[3].classList.remove('on');
-            depth2[4].classList.remove('on');
-            depth2[5].classList.remove('on');
-        })
-
-        depth1[2].addEventListener('mouseover',() => {
-            depth1[2].classList.add('hover');
-            depth1[0].classList.remove('hover');
-            depth1[1].classList.remove('hover');
-            depth1[3].classList.remove('hover');
-            depth1[4].classList.remove('hover');
-            depth1[5].classList.remove('hover');
-
-            depth2[2].classList.add('on');
-            depth2[0].classList.remove('on');
-            depth2[1].classList.remove('on');
-            depth2[3].classList.remove('on');
-            depth2[4].classList.remove('on');
-            depth2[5].classList.remove('on');
-        })
-
-        depth1[3].addEventListener('mouseover',() => {
-            depth1[3].classList.add('hover');
-            depth1[0].classList.remove('hover');
-            depth1[1].classList.remove('hover');
-            depth1[2].classList.remove('hover');
-            depth1[4].classList.remove('hover');
-            depth1[5].classList.remove('hover');
-
-            depth2[3].classList.add('on');
-            depth2[0].classList.remove('on');
-            depth2[1].classList.remove('on');
-            depth2[2].classList.remove('on');
-            depth2[4].classList.remove('on');
-            depth2[5].classList.remove('on');
-        })
-
-        depth1[4].addEventListener('mouseover',() => {
-            depth1[4].classList.add('hover');
-            depth1[0].classList.remove('hover');
-            depth1[1].classList.remove('hover');
-            depth1[2].classList.remove('hover');
-            depth1[3].classList.remove('hover');
-            depth1[5].classList.remove('hover');
-
-            depth2[4].classList.add('on');
-            depth2[0].classList.remove('on');
-            depth2[1].classList.remove('on');
-            depth2[2].classList.remove('on');
-            depth2[3].classList.remove('on');
-            depth2[5].classList.remove('on');
-        })
-
-        depth1[5].addEventListener('mouseover',() => {
-            depth1[5].classList.add('hover');
-            depth1[1].classList.remove('hover');
-            depth1[2].classList.remove('hover');
-            depth1[3].classList.remove('hover');
-            depth1[4].classList.remove('hover');
-            depth1[0].classList.remove('hover');
-
-            depth2[5].classList.add('on');
-            depth2[1].classList.remove('on');
-            depth2[2].classList.remove('on');
-            depth2[3].classList.remove('on');
-            depth2[4].classList.remove('on');
-            depth2[0].classList.remove('on');
-        })
-
-
-        for(let i=0; i<depth2.length; i++){
-            depth2[i].addEventListener('mouseleave',() => {
-                depth1[i].classList.remove('hover');
-                depth2[i].classList.remove('on');
-            })
-        }
-        
-
-        // 영화 랭킹에 마우스오버시 포스터 변경
-        for(let i = 0; i < img_sub.length; i++){
-            ranking[i].addEventListener('mouseover',() => {
-                main_img.src = img_sub[i].src;
-            })
-        }
-        for(let i = 0; i < img_sub2.length; i++){
-            ranking2[i].addEventListener('mouseover',() => {
-                main_img2.src = img_sub2[i].src;
-            })
-        }
-
-        // 예매율순, 관객순을 누르면 서로 바뀌게 하는 스크립트
-        ranking_order[1].addEventListener('click',() => {
-            img_ranking.classList.add('click');
-            img_ranking2.classList.add('click');
-            ranking_order[1].classList.add('on1');
-            ranking_order[0].classList.remove('on');
-            ranking_order[0].classList.remove('order');
-        })
-        ranking_order[0].addEventListener('click',() => {
-            img_ranking.classList.remove('click');
-            img_ranking2.classList.remove('click');
-            ranking_order[0].classList.add('on');
-            ranking_order[1].classList.remove('on1');
-        })
-
-
-        // section01 
-        // 영화 포스터 이미지
-        let imgWrap = document.querySelectorAll('.img-wrap');
-        
-        // 영화 포스터 이미지에 마우스 over시 설명글 노출
-        for(let i=0;i<imgWrap.length;i++){
-            imgWrap[i].addEventListener('mouseover',()=>{
-                imgWrap[i].classList.add('on');                
-            })
-        }
-        // 영화 포스터 이미지에 마우스 leave시 설명글 숨김
-        for(let i=0;i<imgWrap.length;i++){
-            imgWrap[i].addEventListener('mouseleave',()=>{
-                imgWrap[i].classList.remove('on');                
-            })
-        }
-
-               
-
-        // 배너 페이지표시 동그라미
-        let circle = document.querySelectorAll('.circle span');
-         // 팝업이미지
-        let popImg = document.querySelectorAll('.pop-img img');
-        // 배너 인덱스 수 세팅
-        let current = 0;
-        let timer;
-
-        // 재생/정지 버튼
-        let playBtn = document.querySelector('.playBtn');
-        let isPlay = true;
-
-        // 팝업 보여지는 함수
-        function popShow(current){
-            //popImg.src = `img/modal-banner${current+1}.jpg`;
-
-            for(let i=0;i<circle.length;i++){
-                circle[i].classList.remove('active');
-                popImg[i].classList.remove('active');
-            }
-            popImg[current].classList.add('active');
-            circle[current].classList.add('active');
-        }
-        // 팝업 인덱스 자동변경 함수
-        function popChange(){
-            timer = setInterval(()=>{
-                current = (current + 1) % circle.length;                
-                popShow(current);
-            },2000)            
-        }
-        
-        //팝업 정지 함수
-        function popStop(){
-            clearInterval(timer);
-        }
-
-        //팝업 함수호출
-        popShow(current);
-        popChange();    
-
-        playBtn.textContent = '\u23F8';
-
-        playBtn.addEventListener('click',()=>{
-            if(isPlay){
-                popStop();
-                //재생표시
-                playBtn.textContent = '\u25B6';
-                playBtn.style.fontSize = '11px';
-            }else{
-                popChange();
-                //정지표시
-                playBtn.textContent = '\u23F8';
-                playBtn.style.fontSize = '15px';
-            }
-            isPlay = !isPlay;
-        })
-
-        // 팝업 동그라미 눌렀을때 해당 index의 이미지 보여지게 하는 함수
-        for(let i=0; i<circle.length; i++){
-            circle[i].addEventListener('click',()=>{
-                popStop();
-
-                for(let j=0; j<circle.length; j++){
-                    popImg[j].classList.remove('active');
-                    circle[j].classList.remove('active');
-                }
-                popImg[i].classList.add('active');
-                circle[i].classList.add('active');
-                current = i;
-
-                popChange();
-            })
-        }
-
-        // 팝업 x버튼
-        let xBtn = document.querySelector('.x-btn');
-        // 하루동안 안보이기 input
-        let oneDay = document.getElementById('oneday');
-        // 팝업창 전체
-        let popUp = document.querySelector('.pop-up');
-
-        //하루동안 보이지 않기 함수 (일단 3초만에 다시 나타나게 함)
-        xBtn.addEventListener('click',()=>{
-            if(oneDay.checked){
-                popUp.style.display = 'none';
-                let timer = setTimeout(()=>{
-                    popUp.style.display = 'block';
-                },3000);                
-            }else{
-                popUp.style.display = 'none';
-            }
-        })
-
-        // 최상단 배너
-        let topBanner = document.querySelector('.top-banner');
-        // 최상단 배너 닫기버튼
-        let topBannerClose = document.querySelector('.top-banner-close');
-        // 닫기 버튼 클릭시 배너 닫힘
-        topBannerClose.addEventListener('click',()=>{
-            topBanner.style.display = 'none';
-        })
-
-        //마우스 아이콘
-        let moveMouse = document.querySelector('.move-mouse');
-        let moveCurrent = 0;
-
-        let moveMouseTimer = setInterval(()=>{
-            if(moveCurrent === 0){
-                moveMouse.style.bottom = '95px';
-                moveCurrent++;
-            }else{
-                moveMouse.style.bottom = '105px';
-                moveCurrent = 0;
-            }
-        },500)
-
-        //section02
-        //타이틀 이미지
-        let beneTit = document.querySelectorAll('.benefit-tit img');
-        // 우측 이미지
-        let beneImg = document.querySelectorAll('.benefit-img img');
-        // 페이지표시 작대기
-        let bar = document.querySelectorAll('.bar span');
-        //좌측버튼
-        let btnLeft = document.querySelector('.benefit-btn-left');
-        btnLeft.textContent = '\u276E';
-        //우측버튼
-        let btnRight = document.querySelector('.benefit-btn-right');
-        btnRight.textContent = '\u276F';
-        // 재생/정지버튼
-        let btnPlay = document.querySelector('.benefit-btn-play');
-        btnPlay.textContent = '\u23F8';
-        //선택된 페이지
-        let pageSel = document.querySelector('.page-sel');
-        pageSel.textContent = 1;
-        //전체 페이지
-        let pageAll = document.querySelector('.page-all');
-        pageAll.textContent = bar.length;
-        // 배너 인덱스 수 세팅
-        let current2 = 0;
-        let timer2;
-        let isPlay2 = true;
-        
-        //혜택 배너 움직이기
-        function benefitShow(current2){
-            for(let i=0; i<bar.length; i++){
-                beneTit[i].classList.remove('active');
-                beneImg[i].classList.remove('active');
-                bar[i].classList.remove('active');
-            }
-            if(current2 == 0){
-                btnLeft.classList.remove('gray');
-                btnLeft.classList.add('gray');
-            }else{
-                btnLeft.classList.remove('gray');
-            }
-            if(current2 == bar.length-1){
-                btnRight.classList.remove('gray');
-                btnRight.classList.add('gray');
-            }else{
-                btnRight.classList.remove('gray');
-            }
-            beneTit[current2].classList.add('active');
-            beneImg[current2].classList.add('active');
-            bar[current2].classList.add('active');
-            pageSel.textContent = current2 + 1;
-        }
-        //혜택 배너 인덱스 함수
-        function benefitChange(){
-            timer2 = setInterval(()=>{
-                current2 = (current2 + 1) % bar.length;
-                benefitShow(current2);
-            },3000)
-        }
-        //혜택 배너 멈춤
-        function benefitStop(){
-            clearInterval(timer2);
-            //재생표시
-            btnPlay.textContent = '\u25B6';
-            btnPlay.style.fontSize = '10px';
-            btnPlay.style.paddingTop = '1px';
-        }
-
-        benefitShow(current2);
-        benefitChange();
-
-        // 재생/정지 버튼 누를때 동작하는 함수
-        btnPlay.addEventListener('click',()=>{
-            if(isPlay2){
-                benefitStop();
-                //재생표시
-                btnPlay.textContent = '\u25B6';
-                btnPlay.style.fontSize = '10px';
-                btnPlay.style.paddingTop = '1px';
-            }else{
-                benefitChange();
-                //정지표시
-                btnPlay.textContent = '\u23F8';
-                btnPlay.style.fontSize = '13px';
-            }
-            isPlay2 = !isPlay2;
-        })
-
-        // 좌측버튼 클릭시
-        btnLeft.addEventListener('click',()=>{
-            benefitStop();
-            if(current2 == 0){
-                current2 = 0;
-            }else{
-                current2--;
-            }
-            isPlay2 = false;
-            benefitShow(current2);
-        })
-        // 우측버튼 클릭시
-        btnRight.addEventListener('click',()=>{
-            benefitStop();
-            if(current2 == bar.length-1){
-                current2 = bar.length-1;
-            }else{
-                current2++;
-            }
-            isPlay2 = false;
-            benefitShow(current2);
-        })
-
-
-
-
-
-
-
-
-        
-    </script>
+    </div>    
 </body>
 </html>
